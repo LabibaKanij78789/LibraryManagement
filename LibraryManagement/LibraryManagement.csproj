@@ -35,9 +35,12 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=8.0.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +50,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bookLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookLog.Designer.cs">
+      <DependentUpon>bookLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="book_journal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +140,9 @@
     <Compile Include="Signup.Designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="bookLog.resx">
+      <DependentUpon>bookLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="book_journal.resx">
       <DependentUpon>book_journal.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +264,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\notification-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

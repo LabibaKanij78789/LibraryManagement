@@ -149,5 +149,19 @@ namespace LibraryManagement
         {
 
         }
+
+        private void pbl_Click(object sender, EventArgs e)
+        {
+            bookLog bl = new bookLog();
+            this.Hide();
+            bl.Show();
+        }
+
+        private void BL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            bookLog bl = new bookLog();
+            this.Hide();
+            bl.Show();
+        }
     }
 }

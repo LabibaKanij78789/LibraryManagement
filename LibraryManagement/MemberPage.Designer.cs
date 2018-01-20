@@ -135,6 +135,7 @@
             this.pbl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbl.TabIndex = 10;
             this.pbl.TabStop = false;
+            this.pbl.Click += new System.EventHandler(this.pbl_Click);
             // 
             // pgs
             // 
@@ -176,6 +177,7 @@
             this.BL.TabIndex = 5;
             this.BL.TabStop = true;
             this.BL.Text = "Book Log";
+            this.BL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BL_LinkClicked);
             // 
             // GS
             // 

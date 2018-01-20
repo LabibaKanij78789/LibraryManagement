@@ -313,7 +313,7 @@ namespace LibraryManagement
             string q = query;
             //Create a list to store the result
             List<string>[] list = new List<string>[10000];
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 list[i] = new List<string>();
             }
@@ -341,8 +341,9 @@ namespace LibraryManagement
                 {
                     for (int i = 0; i < list.Length; i++)
                     {
-                        list[0].Add(dataReader[colStrings[i]] + "");
+                        list[i].Add(dataReader[colStrings[i]] + "");
                     }
+                    //list[1].Add(dataReader[colStrings[i]]+"");
                     //list[0].Add(dataReader["id"] + "");
                     //list[1].Add(dataReader["name"] + "");
                     //list[2].Add(dataReader["age"] + "");

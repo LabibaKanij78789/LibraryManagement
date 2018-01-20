@@ -92,6 +92,7 @@
             this.Controls.Add(this.button1);
             this.Name = "book_journal";
             this.Text = "book_journal";
+            //this.Load += new System.EventHandler(this.book_journal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bookData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
