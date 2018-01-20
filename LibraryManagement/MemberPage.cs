@@ -163,5 +163,33 @@ namespace LibraryManagement
             this.Hide();
             bl.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            book_possession bp = new book_possession();
+            this.Hide();
+            bp.Show();
+        }
+
+        private void BP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            book_possession bp = new book_possession();
+            this.Hide();
+            bp.Show();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            update_profile up = new update_profile(name);
+            this.Hide();
+            up.Show();
+        }
+
+        private void UP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            update_profile up = new update_profile(name);
+            this.Hide();
+            up.Show();
+        }
     }
 }

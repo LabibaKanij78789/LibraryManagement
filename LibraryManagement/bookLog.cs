@@ -42,7 +42,9 @@ namespace LibraryManagement
 
         private void add_Click(object sender, EventArgs e)
         {
-
+            Search_book sb = new Search_book();
+            this.Hide();
+            sb.Show();
         }
     }
 }
