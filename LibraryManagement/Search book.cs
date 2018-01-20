@@ -110,7 +110,13 @@ namespace LibraryManagement
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBoxItem select = (ComboBoxItem)comboBox1.SelectedItem;
+            
             getStatus = select.ToString();
+        }
+
+        private void Search_book_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
