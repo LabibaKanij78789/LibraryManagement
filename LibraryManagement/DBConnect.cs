@@ -88,6 +88,11 @@ namespace LibraryManagement
                 {
                     query += ", ";
                 }
+                else
+                {
+                    query += ") ";
+
+                }
             }
 
             query += "VALUES(\'";

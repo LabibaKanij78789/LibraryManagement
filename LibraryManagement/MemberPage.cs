@@ -152,14 +152,14 @@ namespace LibraryManagement
 
         private void pbl_Click(object sender, EventArgs e)
         {
-            bookLog bl = new bookLog();
+            bookLog bl = new bookLog(name, null, null);
             this.Hide();
             bl.Show();
         }
 
         private void BL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            bookLog bl = new bookLog();
+            bookLog bl = new bookLog(name, null, null);
             this.Hide();
             bl.Show();
         }
@@ -180,16 +180,21 @@ namespace LibraryManagement
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            updateProfile up = new updateProfile(name);
+            update_profile up = new update_profile(name);
             this.Hide();
             up.Show();
         }
 
         private void UP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            updateProfile up = new updateProfile(name);
+            update_profile up = new update_profile(name);
             this.Hide();
             up.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

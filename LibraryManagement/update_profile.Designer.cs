@@ -54,6 +54,7 @@
             this.label5.Size = new System.Drawing.Size(112, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "Membership";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // password
             // 
@@ -67,6 +68,7 @@
             this.password.Size = new System.Drawing.Size(87, 26);
             this.password.TabIndex = 5;
             this.password.Text = "Password";
+            this.password.Click += new System.EventHandler(this.password_Click);
             // 
             // contacts
             // 
@@ -93,6 +95,7 @@
             this.Name.Size = new System.Drawing.Size(59, 26);
             this.Name.TabIndex = 7;
             this.Name.Text = "Name";
+            this.Name.Click += new System.EventHandler(this.Name_Click);
             // 
             // nameBox
             // 
@@ -114,6 +117,7 @@
             this.memBox.Name = "memBox";
             this.memBox.Size = new System.Drawing.Size(204, 30);
             this.memBox.TabIndex = 9;
+            this.memBox.TextChanged += new System.EventHandler(this.memBox_TextChanged);
             // 
             // passBox
             // 
@@ -124,6 +128,7 @@
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(204, 30);
             this.passBox.TabIndex = 10;
+            this.passBox.TextChanged += new System.EventHandler(this.passBox_TextChanged);
             // 
             // contactBox
             // 
@@ -134,6 +139,7 @@
             this.contactBox.Name = "contactBox";
             this.contactBox.Size = new System.Drawing.Size(204, 30);
             this.contactBox.TabIndex = 11;
+            this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             // 
             // pictureBox1
             // 

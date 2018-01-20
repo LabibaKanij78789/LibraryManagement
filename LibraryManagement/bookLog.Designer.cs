@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.customTextBox1 = new LibraryManagement.CustomTextBox();
+            this.ct = new LibraryManagement.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.add = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,7 +44,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.customTextBox1);
+            this.panel1.Controls.Add(this.ct);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(427, 214);
             this.panel1.Name = "panel1";
@@ -61,14 +61,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // customTextBox1
+            // ct
             // 
-            this.customTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.customTextBox1.Font = new System.Drawing.Font("Minion Pro Med", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customTextBox1.Location = new System.Drawing.Point(151, 121);
-            this.customTextBox1.Name = "customTextBox1";
-            this.customTextBox1.Size = new System.Drawing.Size(150, 27);
-            this.customTextBox1.TabIndex = 1;
+            this.ct.BackColor = System.Drawing.Color.Transparent;
+            this.ct.Font = new System.Drawing.Font("Minion Pro Med", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ct.Location = new System.Drawing.Point(151, 121);
+            this.ct.Name = "ct";
+            this.ct.Size = new System.Drawing.Size(150, 27);
+            this.ct.TabIndex = 1;
             // 
             // label1
             // 
@@ -99,8 +99,9 @@
             this.Column2});
             this.dataGridView1.Location = new System.Drawing.Point(132, 163);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(852, 402);
+            this.dataGridView1.Size = new System.Drawing.Size(777, 402);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // Column1
             // 
@@ -135,7 +136,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private CustomTextBox customTextBox1;
+        private CustomTextBox ct;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.DataGridView dataGridView1;

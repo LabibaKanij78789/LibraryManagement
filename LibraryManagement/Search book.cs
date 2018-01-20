@@ -7,6 +7,8 @@ using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using static LibraryManagement.DBConnect;
 
@@ -17,15 +19,19 @@ namespace LibraryManagement
     {
         string search;
         DBConnect db = new DBConnect();
+        string q;
         string[] col = new []{"name"};
-        string conQ;
-        private List<string>[] result = new List<string>[10];
-        Label[] label = new Label[100];
+        List<List<string>> result = new List<List<string>>();
+
+        string getStatus;
+        //string conQ;
+        //private List<string>[] result = new List<string>[10];
+        //Label[] label = new Label[100];
         //Label[] labels ;
         //labels[0] = new Label();
-        private int locX = 235, locY = 122;
-        private int sizeX = 200, sizeY = 27;
-
+        //private int locX = 235, locY = 122;
+        //private int sizeX = 200, sizeY = 27;
+        string selectedBook;
        
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -33,45 +39,80 @@ namespace LibraryManagement
 
         }
 
-        public Search_book()
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    selectedBook = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                }
+            
+        }
+
+        private string name;
+        public Search_book(string uName)
         {
             InitializeComponent();
+            name = uName;
             //for (int i = 0; i < 100; i++)
             //{
             //    result[i].Add("infinity10000");
             //}
-            pb.ImageLocation =
-                @"D:\\Studies\\3.2\\SD\\LibraryManagement4\\LibraryManagement\\LibraryManagement\\bin\\Image\\arish.png";
-            
+            //pb.ImageLocation =
+            //   @"D:\\Studies\\3.2\\SD\\LibraryManagement4\\LibraryManagement\\LibraryManagement\\bin\\Image\\arish.png";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             search = searchBox.Text.ToString();
-            conQ = " where name = \"" + search + "\"";
-            result = db.Select("books", col, true, conQ);
-            int i = 1;
+            q = "Select books.name as Book_title, books.pub_date as publication_date, " +
+                "author.name as Author, genre.type as Genre, section.type as Section, " +
+                "publisher.name as Publication, books.price as price from books inner join author " +
+                "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
+                " inner join section on books.s_id = section.id inner join publisher " +
+                "on books.p_id = publisher.id where books.name = '" + search + "' or " +
+                "genre.type = '" + search + "' or author.name = '" + search + "' or " +
+                "section.type = '" + search + "' or publisher.name = '" + search + "'";
+
+
             try
             {
-                while (!result.Equals(null))
+                result = db.selectSearch(q, col);
+                DataTable table = new DataTable();
+                for (int i = 0; i < 7; i++)
                 {
-                    //label[i] = new Label();
-                    //label[i].Text = result.ToString();
-                    label[i].Location = new Point(locX, locY);
-                    label[i].Size = new Size(sizeX, sizeY);
-
-                    locY += (sizeY + 15);
-                    if (i == 10)
-                    {
-                        break;
-                    }
-                    i++;
+                    table.Columns.Add(col[i]);
                 }
+                foreach (var array in result)
+                {
+                    table.Rows.Add(array.ToArray());
+                }
+                dataGridView1.DataSource = table;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            bookLog bl = new bookLog(name, selectedBook, getStatus);
+            this.Hide();
+            bl.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxItem select = (ComboBoxItem)comboBox1.SelectedItem;
+            getStatus = select.ToString();
         }
     }
 }
