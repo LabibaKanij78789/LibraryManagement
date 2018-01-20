@@ -20,7 +20,7 @@ namespace LibraryManagement
         string search;
         DBConnect db = new DBConnect();
         string q;
-        string[] col = new []{"name"};
+        string[] col = new []{"book_tile"};
         List<List<string>> result = new List<List<string>>();
 
         string getStatus;
@@ -71,9 +71,7 @@ namespace LibraryManagement
         private void button1_Click(object sender, EventArgs e)
         {
             search = searchBox.Text.ToString();
-            q = "Select books.name as Book_title, books.pub_date as publication_date, " +
-                "author.name as Author, genre.type as Genre, section.type as Section, " +
-                "publisher.name as Publication, books.price as price from books inner join author " +
+            q = "Select books.name as book_title from books inner join author " +
                 "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
                 " inner join section on books.s_id = section.id inner join publisher " +
                 "on books.p_id = publisher.id where books.name = '" + search + "' or " +
@@ -85,7 +83,7 @@ namespace LibraryManagement
             {
                 result = db.selectSearch(q, col);
                 DataTable table = new DataTable();
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     table.Columns.Add(col[i]);
                 }
@@ -104,7 +102,7 @@ namespace LibraryManagement
         private void button2_Click(object sender, EventArgs e)
         {
             
-            bookLog bl = new bookLog(name, selectedBook, getStatus);
+            bookLog bl = new bookLog(name, selectedBook, getStatus, true);
             this.Hide();
             bl.Show();
         }

@@ -16,7 +16,7 @@ namespace LibraryManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new bookLog("labiba", null, null));
+            Application.Run(new bookLog("labiba", null, null, false));
         }
     }
 }

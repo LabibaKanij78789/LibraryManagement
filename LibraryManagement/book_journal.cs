@@ -83,11 +83,11 @@ namespace LibraryManagement
                     "section.type = '" + searchString + "' or publisher.name = '" + searchString + "'";
 
             resultString = db.selectSearch(query, columns);
-            //bookData.ColumnCount = 7;
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    bookData.Columns[i].HeaderCell.Value = columns[i];
-            //}
+            bookData.ColumnCount = 7;
+            for (int i = 0; i < 7; i++)
+            {
+                bookData.Columns[i].HeaderCell.Value = columns[i];
+            }
             DataTable table = new DataTable();
             for (int i = 0; i < 7; i++)
             {

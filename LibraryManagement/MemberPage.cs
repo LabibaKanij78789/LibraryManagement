@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using static LibraryManagement.DBConnect;
 namespace LibraryManagement
@@ -16,8 +17,10 @@ namespace LibraryManagement
         int i = 0;
         LinkLabel a = new LinkLabel();
         LinkLabel b = new LinkLabel();
+        string selectedBook;
+        string bl;
         DBConnect instance = new DBConnect();
-
+        List<List<string>> result = new List<List<string>>();
         public string name;
         public MemberPage(string uName)
         {
@@ -31,6 +34,10 @@ namespace LibraryManagement
             groupBox1.BackColor = Color.Transparent;
             groupBox2.BackColor = Color.Transparent;
             pbl.BackColor = Color.Transparent;
+            groupBox1.Show();
+            groupBox2.Show();
+            dataGridView1.Hide();
+            button2.Hide();
             //profile.Size = new Size(profile.Width, profile.Height);
         }
 
@@ -152,16 +159,43 @@ namespace LibraryManagement
 
         private void pbl_Click(object sender, EventArgs e)
         {
-            bookLog bl = new bookLog(name, null, null);
+            string q = "select bookLog from book_log inner join user where book_log.u_id = user.id";
+            string[] col = new[] {"bookLog"};
+            
+            result = instance.selectSearch(q, col);
+            foreach (List<string> s in result)
+            {
+                foreach (string r in s)
+                {
+                   bl  = r;
+                }
+            }
+
+            
+            Boolean bookLog = Convert.ToBoolean(bl);
+            bookLog blg = new bookLog(name, null, null, bookLog);
             this.Hide();
-            bl.Show();
+            blg.Show();
         }
 
         private void BL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            bookLog bl = new bookLog(name, null, null);
+            string q = "select bookLog from book_log inner join user where book_log.u_id = user.id";
+            string[] col = new[] { "bookLog" };
+
+            result = instance.selectSearch(q, col);
+            foreach (List<string> s in result)
+            {
+                foreach (string r in s)
+                {
+                    bl = r;
+                }
+            }
+
+            Boolean bookLog = Convert.ToBoolean(bl);
+            bookLog blg = new bookLog(name, null, null, bookLog);
             this.Hide();
-            bl.Show();
+            blg.Show();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -195,6 +229,62 @@ namespace LibraryManagement
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //string search = searchText.Text.ToString();
+            groupBox1.Hide();
+            groupBox2.Hide();
+            dataGridView1.Show();
+            button2.Show();
+            string searchString = searchText.Text.ToString();
+            //db.OpenConnection();
+
+            string[] columns = new[] { "Book_title", "publication_date", "Author", "Genre", "Section", "Publication", "price" };
+            string query = "Select books.name as Book_title, books.pub_date as publication_date, " +
+                    "author.name as Author, genre.type as Genre, section.type as Section, " +
+                    "publisher.name as Publication, books.price as price from books inner join author " +
+                    "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
+                    " inner join section on books.s_id = section.id inner join publisher " +
+                    "on books.p_id = publisher.id where books.name = '" + searchString + "' or " +
+                    "genre.type = '" + searchString + "' or author.name = '" + searchString + "' or " +
+                    "section.type = '" + searchString + "' or publisher.name = '" + searchString + "'";
+            List<List<string>> resultString = new List<List<string>>();
+                resultString = instance.selectSearch(query, columns);
+            dataGridView1.ColumnCount = 7;
+            for (int i = 0; i < 7; i++)
+            {
+                dataGridView1.Columns[i].HeaderCell.Value = columns[i];
+            }
+            DataTable table = new DataTable();
+            for (int i = 0; i < 7; i++)
+            {
+                table.Columns.Add(columns[i]);
+            }
+            foreach (var array in resultString)
+            {
+                table.Rows.Add(array.ToArray());
+            }
+            dataGridView1.DataSource = table;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                selectedBook = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            }
         }
     }
 }
