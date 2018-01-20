@@ -12,14 +12,28 @@ namespace LibraryManagement
 {
     public partial class viewBookDetails : Form
     {
-        public viewBookDetails(string bookName)
+        string name;
+        public viewBookDetails(string bookName, string uName)
         {
             InitializeComponent();
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox2.BackColor = Color.Transparent;
+            name = uName;
         }
 
         private void viewBookDetails_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MemberPage mp = new MemberPage(name);
         }
     }
 }
