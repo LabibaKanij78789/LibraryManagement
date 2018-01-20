@@ -31,12 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtissuedate = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtgenre = new System.Windows.Forms.TextBox();
+            this.txtauthor = new System.Windows.Forms.TextBox();
+            this.txtpublisher = new System.Windows.Forms.TextBox();
+            this.txtedition = new System.Windows.Forms.TextBox();
+            this.txtbookid = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,31 +45,30 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtsemester = new System.Windows.Forms.TextBox();
+            this.txtyear = new System.Windows.Forms.TextBox();
+            this.txtcourse = new System.Windows.Forms.TextBox();
+            this.txtname = new System.Windows.Forms.TextBox();
+            this.txtmemberid = new System.Windows.Forms.TextBox();
+            this.txtstudentid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.returndate = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -94,14 +94,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox13);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.txtissuedate);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox9);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.txtgenre);
+            this.groupBox2.Controls.Add(this.txtauthor);
+            this.groupBox2.Controls.Add(this.txtpublisher);
+            this.groupBox2.Controls.Add(this.txtedition);
+            this.groupBox2.Controls.Add(this.txtbookid);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
@@ -117,58 +117,71 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Book Detail";
             // 
-            // textBox12
+            // txtissuedate
             // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(118, 272);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(212, 26);
-            this.textBox12.TabIndex = 12;
-            this.textBox12.Visible = false;
+            this.txtissuedate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtissuedate.Location = new System.Drawing.Point(118, 322);
+            this.txtissuedate.Name = "txtissuedate";
+            this.txtissuedate.Size = new System.Drawing.Size(212, 26);
+            this.txtissuedate.TabIndex = 14;
+            this.txtissuedate.Visible = false;
             // 
-            // textBox11
+            // label15
             // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(118, 231);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(212, 26);
-            this.textBox11.TabIndex = 11;
-            this.textBox11.Visible = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label15.Location = new System.Drawing.Point(17, 328);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(97, 20);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Issue Date";
+            this.label15.Visible = false;
             // 
-            // textBox10
+            // txtgenre
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(118, 199);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(212, 26);
-            this.textBox10.TabIndex = 10;
-            this.textBox10.Visible = false;
+            this.txtgenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtgenre.Location = new System.Drawing.Point(118, 272);
+            this.txtgenre.Name = "txtgenre";
+            this.txtgenre.Size = new System.Drawing.Size(212, 26);
+            this.txtgenre.TabIndex = 12;
+            this.txtgenre.Visible = false;
             // 
-            // textBox9
+            // txtauthor
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(118, 149);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(212, 26);
-            this.textBox9.TabIndex = 9;
-            this.textBox9.Visible = false;
+            this.txtauthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtauthor.Location = new System.Drawing.Point(118, 237);
+            this.txtauthor.Name = "txtauthor";
+            this.txtauthor.Size = new System.Drawing.Size(212, 26);
+            this.txtauthor.TabIndex = 11;
+            this.txtauthor.Visible = false;
             // 
-            // textBox8
+            // txtpublisher
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(118, 104);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(212, 26);
-            this.textBox8.TabIndex = 8;
-            this.textBox8.Visible = false;
+            this.txtpublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpublisher.Location = new System.Drawing.Point(118, 199);
+            this.txtpublisher.Name = "txtpublisher";
+            this.txtpublisher.Size = new System.Drawing.Size(212, 26);
+            this.txtpublisher.TabIndex = 10;
+            this.txtpublisher.Visible = false;
             // 
-            // textBox7
+            // txtedition
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(118, 52);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(212, 26);
-            this.textBox7.TabIndex = 7;
+            this.txtedition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtedition.Location = new System.Drawing.Point(118, 149);
+            this.txtedition.Name = "txtedition";
+            this.txtedition.Size = new System.Drawing.Size(212, 26);
+            this.txtedition.TabIndex = 9;
+            this.txtedition.Visible = false;
+            // 
+            // txtbookid
+            // 
+            this.txtbookid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbookid.Location = new System.Drawing.Point(118, 104);
+            this.txtbookid.Name = "txtbookid";
+            this.txtbookid.Size = new System.Drawing.Size(212, 26);
+            this.txtbookid.TabIndex = 8;
+            this.txtbookid.Visible = false;
             // 
             // label13
             // 
@@ -177,9 +190,9 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label13.Location = new System.Drawing.Point(17, 52);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 20);
+            this.label13.Size = new System.Drawing.Size(101, 20);
             this.label13.TabIndex = 6;
-            this.label13.Text = "Book Id";
+            this.label13.Text = "Book Name";
             // 
             // label12
             // 
@@ -188,9 +201,9 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label12.Location = new System.Drawing.Point(17, 104);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 20);
+            this.label12.Size = new System.Drawing.Size(71, 20);
             this.label12.TabIndex = 5;
-            this.label12.Text = "Name";
+            this.label12.Text = "Book Id";
             this.label12.Visible = false;
             // 
             // label11
@@ -250,23 +263,14 @@
             this.panel1.Size = new System.Drawing.Size(359, 371);
             this.panel1.TabIndex = 6;
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Location = new System.Drawing.Point(422, 95);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(362, 374);
-            this.panel2.TabIndex = 7;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtsemester);
+            this.groupBox1.Controls.Add(this.txtyear);
+            this.groupBox1.Controls.Add(this.txtcourse);
+            this.groupBox1.Controls.Add(this.txtname);
+            this.groupBox1.Controls.Add(this.txtmemberid);
+            this.groupBox1.Controls.Add(this.txtstudentid);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -282,58 +286,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Detail";
             // 
-            // textBox6
+            // txtsemester
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(108, 278);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(212, 26);
-            this.textBox6.TabIndex = 11;
-            this.textBox6.Visible = false;
+            this.txtsemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsemester.Location = new System.Drawing.Point(108, 278);
+            this.txtsemester.Name = "txtsemester";
+            this.txtsemester.Size = new System.Drawing.Size(212, 26);
+            this.txtsemester.TabIndex = 11;
+            this.txtsemester.Visible = false;
             // 
-            // textBox5
+            // txtyear
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(108, 243);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(212, 26);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.Visible = false;
+            this.txtyear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtyear.Location = new System.Drawing.Point(108, 243);
+            this.txtyear.Name = "txtyear";
+            this.txtyear.Size = new System.Drawing.Size(212, 26);
+            this.txtyear.TabIndex = 10;
+            this.txtyear.Visible = false;
             // 
-            // textBox4
+            // txtcourse
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(108, 199);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(212, 26);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.Visible = false;
+            this.txtcourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcourse.Location = new System.Drawing.Point(108, 199);
+            this.txtcourse.Name = "txtcourse";
+            this.txtcourse.Size = new System.Drawing.Size(212, 26);
+            this.txtcourse.TabIndex = 9;
+            this.txtcourse.Visible = false;
             // 
-            // textBox3
+            // txtname
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(108, 155);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(212, 26);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.Visible = false;
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(108, 155);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(212, 26);
+            this.txtname.TabIndex = 8;
+            this.txtname.Visible = false;
             // 
-            // textBox2
+            // txtmemberid
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(108, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 26);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Visible = false;
+            this.txtmemberid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmemberid.Location = new System.Drawing.Point(108, 101);
+            this.txtmemberid.Name = "txtmemberid";
+            this.txtmemberid.Size = new System.Drawing.Size(212, 26);
+            this.txtmemberid.TabIndex = 7;
             // 
-            // textBox1
+            // txtstudentid
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(108, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 26);
-            this.textBox1.TabIndex = 6;
+            this.txtstudentid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstudentid.Location = new System.Drawing.Point(108, 51);
+            this.txtstudentid.Name = "txtstudentid";
+            this.txtstudentid.Size = new System.Drawing.Size(212, 26);
+            this.txtstudentid.TabIndex = 6;
             // 
             // label7
             // 
@@ -366,10 +369,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(7, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 20);
+            this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Name";
-            this.label5.Visible = false;
+            this.label5.Text = "Member Id";
             // 
             // label4
             // 
@@ -378,9 +380,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(7, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 20);
+            this.label4.Size = new System.Drawing.Size(55, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Member Id";
+            this.label4.Text = "Name";
             this.label4.Visible = false;
             // 
             // label3
@@ -406,26 +408,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Student Id";
             // 
-            // label15
+            // panel2
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(17, 328);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(97, 20);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Issue Date";
-            this.label15.Visible = false;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(118, 322);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(212, 26);
-            this.textBox13.TabIndex = 14;
-            this.textBox13.Visible = false;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Location = new System.Drawing.Point(422, 95);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(362, 374);
+            this.panel2.TabIndex = 7;
             // 
             // label16
             // 
@@ -438,12 +428,12 @@
             this.label16.TabIndex = 8;
             this.label16.Text = "Return Date";
             // 
-            // dateTimePicker2
+            // returndate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(572, 487);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(212, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.returndate.Location = new System.Drawing.Point(572, 487);
+            this.returndate.Name = "returndate";
+            this.returndate.Size = new System.Drawing.Size(212, 20);
+            this.returndate.TabIndex = 9;
             // 
             // button3
             // 
@@ -465,6 +455,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Return";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -477,6 +468,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(118, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(212, 28);
+            this.comboBox1.TabIndex = 15;
+            // 
             // ReturnBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,7 +485,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.returndate);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -496,9 +496,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,12 +509,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtgenre;
+        private System.Windows.Forms.TextBox txtauthor;
+        private System.Windows.Forms.TextBox txtpublisher;
+        private System.Windows.Forms.TextBox txtedition;
+        private System.Windows.Forms.TextBox txtbookid;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -524,24 +523,25 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtsemester;
+        private System.Windows.Forms.TextBox txtyear;
+        private System.Windows.Forms.TextBox txtcourse;
+        private System.Windows.Forms.TextBox txtname;
+        private System.Windows.Forms.TextBox txtmemberid;
+        private System.Windows.Forms.TextBox txtstudentid;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtissuedate;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker returndate;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

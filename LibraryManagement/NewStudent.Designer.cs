@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.combomembertype = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerv = new System.Windows.Forms.DateTimePicker();
+            this.combosemester = new System.Windows.Forms.ComboBox();
+            this.comboyear = new System.Windows.Forms.ComboBox();
+            this.txtmemberid = new System.Windows.Forms.TextBox();
+            this.txtname = new System.Windows.Forms.TextBox();
+            this.txtstudentid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,21 +46,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.combocourse = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.combocourse);
+            this.groupBox1.Controls.Add(this.combomembertype);
+            this.groupBox1.Controls.Add(this.dateTimePickerv);
+            this.groupBox1.Controls.Add(this.combosemester);
+            this.groupBox1.Controls.Add(this.comboyear);
+            this.groupBox1.Controls.Add(this.txtmemberid);
+            this.groupBox1.Controls.Add(this.txtname);
+            this.groupBox1.Controls.Add(this.txtstudentid);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -77,63 +77,77 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Student";
             // 
-            // comboBox2
+            // combomembertype
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.combomembertype.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combomembertype.FormattingEnabled = true;
+            this.combomembertype.Items.AddRange(new object[] {
+            "General",
+            "Platinum",
+            "Golden"});
+            this.combomembertype.Location = new System.Drawing.Point(154, 342);
+            this.combomembertype.Name = "combomembertype";
+            this.combomembertype.Size = new System.Drawing.Size(229, 33);
+            this.combomembertype.TabIndex = 17;
+            // 
+            // dateTimePickerv
+            // 
+            this.dateTimePickerv.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerv.Location = new System.Drawing.Point(154, 390);
+            this.dateTimePickerv.Name = "dateTimePickerv";
+            this.dateTimePickerv.Size = new System.Drawing.Size(229, 26);
+            this.dateTimePickerv.TabIndex = 16;
+            // 
+            // combosemester
+            // 
+            this.combosemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combosemester.FormattingEnabled = true;
+            this.combosemester.Items.AddRange(new object[] {
             "1st",
             "2nd"});
-            this.comboBox2.Location = new System.Drawing.Point(154, 246);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 33);
-            this.comboBox2.TabIndex = 15;
+            this.combosemester.Location = new System.Drawing.Point(154, 246);
+            this.combosemester.Name = "combosemester";
+            this.combosemester.Size = new System.Drawing.Size(229, 33);
+            this.combosemester.TabIndex = 15;
             // 
-            // comboBox1
+            // comboyear
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboyear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboyear.FormattingEnabled = true;
+            this.comboyear.Items.AddRange(new object[] {
             "1st",
             "2nd",
             "3rd",
             "4th"});
-            this.comboBox1.Location = new System.Drawing.Point(154, 202);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 33);
-            this.comboBox1.TabIndex = 14;
+            this.comboyear.Location = new System.Drawing.Point(154, 202);
+            this.comboyear.Name = "comboyear";
+            this.comboyear.Size = new System.Drawing.Size(229, 33);
+            this.comboyear.TabIndex = 14;
             // 
-            // textBox4
+            // txtmemberid
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(154, 297);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 31);
-            this.textBox4.TabIndex = 11;
+            this.txtmemberid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmemberid.Location = new System.Drawing.Point(154, 297);
+            this.txtmemberid.Name = "txtmemberid";
+            this.txtmemberid.Size = new System.Drawing.Size(229, 31);
+            this.txtmemberid.TabIndex = 11;
             // 
-            // textBox3
+            // txtname
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(154, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 31);
-            this.textBox3.TabIndex = 10;
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(154, 104);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(229, 31);
+            this.txtname.TabIndex = 9;
             // 
-            // textBox2
+            // txtstudentid
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(154, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 31);
-            this.textBox2.TabIndex = 9;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 31);
-            this.textBox1.TabIndex = 8;
+            this.txtstudentid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstudentid.Location = new System.Drawing.Point(154, 60);
+            this.txtstudentid.Name = "txtstudentid";
+            this.txtstudentid.Size = new System.Drawing.Size(229, 31);
+            this.txtstudentid.TabIndex = 8;
             // 
             // label8
             // 
@@ -232,6 +246,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -244,27 +259,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dateTimePicker1
+            // combocourse
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(154, 390);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(229, 26);
-            this.dateTimePicker1.TabIndex = 16;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "General",
-            "Platinum",
-            "Golden"});
-            this.comboBox3.Location = new System.Drawing.Point(154, 342);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(229, 33);
-            this.comboBox3.TabIndex = 17;
+            this.combocourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combocourse.FormattingEnabled = true;
+            this.combocourse.Items.AddRange(new object[] {
+            "CSE",
+            "EEE",
+            "CIVIL",
+            "IPE",
+            "TEXTILE",
+            "ME",
+            "BBA"});
+            this.combocourse.Location = new System.Drawing.Point(154, 152);
+            this.combocourse.Name = "combocourse";
+            this.combocourse.Size = new System.Drawing.Size(229, 33);
+            this.combocourse.TabIndex = 18;
             // 
             // NewStudent
             // 
@@ -295,13 +305,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox combosemester;
+        private System.Windows.Forms.ComboBox comboyear;
+        private System.Windows.Forms.TextBox txtmemberid;
+        private System.Windows.Forms.TextBox txtname;
+        private System.Windows.Forms.TextBox txtstudentid;
+        private System.Windows.Forms.DateTimePicker dateTimePickerv;
+        private System.Windows.Forms.ComboBox combomembertype;
+        private System.Windows.Forms.ComboBox combocourse;
     }
 }
