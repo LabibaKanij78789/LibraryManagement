@@ -28,7 +28,7 @@ namespace LibraryManagement
         private string uid;
         private string password;
         DBConnect db = new DBConnect();
-        private List<string>[] resultString = new List<string>[1];
+        private List<List<string>> resultString = new List<List<string>>();
         public book_journal()
         {
             InitializeComponent();

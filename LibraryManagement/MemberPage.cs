@@ -180,14 +180,14 @@ namespace LibraryManagement
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            update_profile up = new update_profile(name);
+            updateProfile up = new updateProfile(name);
             this.Hide();
             up.Show();
         }
 
         private void UP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            update_profile up = new update_profile(name);
+            updateProfile up = new updateProfile(name);
             this.Hide();
             up.Show();
         }
