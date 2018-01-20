@@ -322,46 +322,52 @@ namespace LibraryManagement
             //list[2] = new List<string>();
 
             //Open connection
-            if (this.OpenConnection() == true)
+            try
             {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(q, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                if (!dataReader.HasRows)
+                if (this.OpenConnection() == true)
                 {
-                    for (int i = 0; i < 10000; i++)
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(q, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    if (!dataReader.HasRows)
                     {
-                        list[i].Clear();
+                        for (int i = 0; i < 10000; i++)
+                        {
+                            list[i].Clear();
+                        }
                     }
-                }
 
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    for (int i = 0; i < list.Length; i++)
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
                     {
-                        list[i].Add(dataReader[colStrings[i]] + "");
+                        for (int i = 0; i < colStrings.Length; i++)
+                        {
+                            list[i].Add(dataReader[colStrings[i]] + "");
+                        }
+                        //list[1].Add(dataReader[colStrings[i]]+"");
+                        //list[0].Add(dataReader["id"] + "");
+                        //list[1].Add(dataReader["name"] + "");
+                        //list[2].Add(dataReader["age"] + "");
                     }
-                    //list[1].Add(dataReader[colStrings[i]]+"");
-                    //list[0].Add(dataReader["id"] + "");
-                    //list[1].Add(dataReader["name"] + "");
-                    //list[2].Add(dataReader["age"] + "");
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    this.CloseConnection();
+
+                    //return list to be displayed
+                   
                 }
+               
 
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                this.CloseConnection();
-
-                //return list to be displayed
-                return list;
             }
-            else
+            catch (Exception ex)
             {
-                return list;
+                MessageBox.Show(ex.ToString());
             }
+            return list;
         }
         //Count statement
         public int Count(String tableName)
