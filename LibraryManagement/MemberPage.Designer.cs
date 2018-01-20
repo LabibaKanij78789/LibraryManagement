@@ -125,6 +125,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pbl
             // 
@@ -167,6 +168,7 @@
             this.BP.TabIndex = 7;
             this.BP.TabStop = true;
             this.BP.Text = "Book Possession";
+            this.BP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BP_LinkClicked);
             // 
             // BL
             // 
@@ -236,6 +238,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // Noti
             // 
@@ -265,6 +268,7 @@
             this.UP.TabIndex = 3;
             this.UP.TabStop = true;
             this.UP.Text = "Update Profile";
+            this.UP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UP_LinkClicked);
             // 
             // MemberPage
             // 

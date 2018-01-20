@@ -32,10 +32,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.customTextBox1 = new LibraryManagement.CustomTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.book = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +43,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.customTextBox1);
             this.panel1.Controls.Add(this.label1);
@@ -82,31 +81,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Create your log";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.book,
-            this.status});
-            this.dataGridView1.Location = new System.Drawing.Point(-313, -61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(563, 430);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // book
-            // 
-            this.book.Frozen = true;
-            this.book.HeaderText = "Book Title";
-            this.book.Name = "book";
-            // 
-            // status
-            // 
-            this.status.Frozen = true;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            // 
             // add
             // 
             this.add.Location = new System.Drawing.Point(1071, 292);
@@ -117,12 +91,34 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(132, 163);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(852, 402);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Book Title";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Status";
+            this.Column2.Name = "Column2";
+            // 
             // bookLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.add);
             this.Controls.Add(this.panel1);
             this.Name = "bookLog";
@@ -141,9 +137,9 @@
         private System.Windows.Forms.Button button1;
         private CustomTextBox customTextBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn book;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Button add;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

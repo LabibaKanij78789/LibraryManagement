@@ -78,9 +78,9 @@ namespace LibraryManagement
                     "publisher.name as Publication, books.price as price from books inner join author " +
                     "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
                     " inner join section on books.s_id = section.id inner join publisher " +
-                    "on books.p_id = publisher.id where books.name = " + searchString + " or " +
-                    "genre.type = " + searchString + " or author.name = " + searchString + " or " +
-                    "section.type = " + searchString + " or publisher.name = " + searchString;
+                    "on books.p_id = publisher.id where books.name = \"" + searchString + "\" or " +
+                    "genre.type = \"" + searchString + "\" or author.name = \"" + searchString + "\" or " +
+                    "section.type = \"" + searchString + "\" or publisher.name = \"" + searchString + "\"";
 
             resultString = db.selectSearch(query, columns);
             //bookData.ColumnCount = 7;
