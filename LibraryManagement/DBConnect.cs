@@ -214,7 +214,7 @@ namespace LibraryManagement
                 {
                     for (int i = 0; i < colNo; i++)
                     {
-                        list[0].Add(dataReader[colStrings[i]] + "");
+                        list[i].Add(dataReader[colStrings[i]] + "");
                     }
                     //list[0].Add(dataReader["id"] + "");
                     //list[1].Add(dataReader["name"] + "");
@@ -308,15 +308,12 @@ namespace LibraryManagement
             }
         }
 
-        public List<string>[] selectSearch(string query, string[] colStrings)
+        public List<List<string>> selectSearch(string query, string[] colStrings)
         {
             string q = query;
             //Create a list to store the result
-            List<string>[] list = new List<string>[10000];
-            for (int i = 0; i < 10000; i++)
-            {
-                list[i] = new List<string>();
-            }
+            List<List<string>> list = new List<List<string>>();
+
             //list[0] = new List<string>();
             //list[1] = new List<string>();
             //list[2] = new List<string>();
@@ -330,25 +327,17 @@ namespace LibraryManagement
                     MySqlCommand cmd = new MySqlCommand(q, connection);
                     //Create a data reader and Execute the command
                     MySqlDataReader dataReader = cmd.ExecuteReader();
-                    if (!dataReader.HasRows)
-                    {
-                        for (int i = 0; i < 10000; i++)
-                        {
-                            list[i].Clear();
-                        }
-                    }
 
                     //Read the data and store them in the list
                     while (dataReader.Read())
                     {
+                        List<string> arr = new List<string>();
+                       
                         for (int i = 0; i < colStrings.Length; i++)
                         {
-                            list[i].Add(dataReader[colStrings[i]] + "");
+                            arr.Add(dataReader[colStrings[i]].ToString());
                         }
-                        //list[1].Add(dataReader[colStrings[i]]+"");
-                        //list[0].Add(dataReader["id"] + "");
-                        //list[1].Add(dataReader["name"] + "");
-                        //list[2].Add(dataReader["age"] + "");
+                        list.Add(arr);
                     }
 
                     //close Data Reader
