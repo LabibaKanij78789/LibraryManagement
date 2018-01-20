@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static  LibraryManagement.DBConnect;
 using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Relational;
+//using MySqlX.XDevAPI.Relational;
 
 namespace LibraryManagement
 {
@@ -72,15 +72,15 @@ namespace LibraryManagement
             searchString = searchInput.Text.ToString();
             //db.OpenConnection();
 
-            string[] columns = new[] { "books.name", "books.pub_date", "author.name", "genre.type", "section.type", "publisher.name", "books.price" };
+            string[] columns = new[] { "Book_title", "publication_date", "Author", "Genre", "Section", "Publication", "price" };
             query = "Select books.name as Book_title, books.pub_date as publication_date, " +
                     "author.name as Author, genre.type as Genre, section.type as Section, " +
                     "publisher.name as Publication, books.price as price from books inner join author " +
                     "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
                     " inner join section on books.s_id = section.id inner join publisher " +
-                    "on books.p_id = publisher.id where books.name = \"" + searchString + "\" or " +
-                    "genre.type = \"" + searchString + "\" or author.name = \"" + searchString + "\" or " +
-                    "section.type = \"" + searchString + "\" or publisher.name = \"" + searchString + "\"";
+                    "on books.p_id = publisher.id where books.name = '" + searchString + "' or " +
+                    "genre.type = '" + searchString + "' or author.name = '" + searchString + "' or " +
+                    "section.type = '" + searchString + "' or publisher.name = '" + searchString + "'";
 
             resultString = db.selectSearch(query, columns);
             //bookData.ColumnCount = 7;
@@ -95,7 +95,7 @@ namespace LibraryManagement
             }
             foreach (var array in resultString)
             {
-                table.Rows.Add(array);
+                table.Rows.Add(array.ToArray());
             }
             bookData.DataSource = table;
         }

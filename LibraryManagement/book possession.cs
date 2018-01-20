@@ -29,7 +29,7 @@ namespace LibraryManagement
 
         private void book_possession_Load(object sender, EventArgs e)
         {
-           // result1 = db.selectSearch(query1, columns1);
+            //result1 = db.selectSearch(query1, columns1);
             
         }
 
