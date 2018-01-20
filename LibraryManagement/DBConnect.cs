@@ -335,7 +335,7 @@ namespace LibraryManagement
                        
                         for (int i = 0; i < colStrings.Length; i++)
                         {
-                            arr.Add(dataReader[colStrings[i]].ToString());
+                            arr.Add( dataReader[ colStrings[i] ].ToString() );
                         }
                         list.Add(arr);
                     }

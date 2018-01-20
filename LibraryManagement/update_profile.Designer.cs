@@ -188,7 +188,7 @@
             this.Controls.Add(this.contacts);
             this.Controls.Add(this.password);
             this.Controls.Add(this.label5);
-            this.Name = "update_profile";
+            //this.Name = "update_profile";
             this.Text = "update_profile";
             this.Load += new System.EventHandler(this.update_profile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
