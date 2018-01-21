@@ -276,7 +276,8 @@ namespace LibraryManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            viewBookDetails vb = new viewBookDetails(selectedBook, name);
+            //viewBookDetails vb = new viewBookDetails(selectedBook, name);
+            //viewBookDetails vb = new viewBookDetails(selectedBook, name);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

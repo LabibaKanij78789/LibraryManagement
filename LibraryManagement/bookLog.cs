@@ -16,31 +16,24 @@ namespace LibraryManagement
     {
         private string blName;
         string user_id;
-        bool creatLog = false;
+        bool creatLog;
         DBConnect db = new DBConnect();
-         string name;
-         string status;
-        //string[] colBook;
-        //string[] colbookLog;
+        string name;
+        string status;
+
         string book_id;
         string bl_id;
 
         List<List<string>> result = new List<List<string>>();
         List<List<string>> result2 = new List<List<string>>();
-
-        public bookLog(string uName, string book, string getStatus)
+        public bookLog(string uName, string book, string getStatus, Boolean bl)
         {
             InitializeComponent();
             this.dataGridView1.Hide();
             this.add.Hide();
             name = uName;
             status = getStatus;
-            
-        }
-
-        private void bookLog_Load(object sender, EventArgs e)
-        {
-            
+            creatLog = bl;
             if (creatLog)
             {
                 string[] colBook = new[] { "id" };
@@ -64,19 +57,37 @@ namespace LibraryManagement
                         bl_id = r;
                     }
                 }
-
-                string[] col = new[] {"b_id", "bl_id", "status"};
-                string[] val = new[] {book_id, bl_id, status};
+                button1.Hide();
+                panel1.Hide();
+                label1.Hide();
+                add.Show();
+                dataGridView1.Show();
+                string[] col = new[] { "b_id", "bl_id", "status" };
+                string[] val = new[] { book_id, bl_id, status };
                 db.Insert("contains", col, val);
+
             }
+
+            else
+            {
+                this.dataGridView1.Hide();
+                this.add.Hide();
+            }
+        }
+
+        private void bookLog_Load(object sender, EventArgs e)
+        {
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string q = "select id from user where name = " + name;
             string[] columns1 = new[] { "Name" };
-            
-            
+
+
             result = db.selectSearch(q, columns1);
             foreach (List<string> s in result)
             {
@@ -87,8 +98,12 @@ namespace LibraryManagement
             }
             //blName = label1.Text.ToString();
             string[] columns2 = new[] { "u_id", "Name" };
-            string[] booklog = new []{ user_id, ct.Text.ToString() };
+            string[] booklog = new[] { user_id, ct.Text.ToString() };
             db.Insert("book_log", columns2, booklog);
+            string[] upcol = { "bookLog" };
+            string[] upval = { "1" };
+            string conQ = "where name = '" + name + "'";
+            db.Update("user", upcol, upval, conQ);
             button1.Hide();
             panel1.Hide();
             label1.Hide();
