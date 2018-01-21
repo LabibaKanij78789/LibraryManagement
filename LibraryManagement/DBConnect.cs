@@ -34,8 +34,21 @@ namespace LibraryManagement
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
-            connection = new MySqlConnection(connectionString);
+            try
+            {
+                connection = new MySqlConnection(connectionString);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
+
+        public MySqlConnection getConnection()
+        {
+            return this.connection;
+        }
+
         //open connection to database
         public bool OpenConnection()
         {
@@ -46,16 +59,7 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                switch (ex.HResult)
-                {
-                    case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
-                        break;
-
-                    case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
-                        break;
-                }
+                MessageBox.Show(ex.ToString());
                 return false;
             }
             
@@ -125,7 +129,7 @@ namespace LibraryManagement
         }
 
         //Update statement
-        public void Update(String tableName, String[] colStrings, String[] values)
+        public void Update(String tableName, String[] colStrings, String[] values,String condition)
         {
             string query = "UPDATE " + tableName + " SET ";
             colNo = colStrings.Length;
@@ -133,8 +137,7 @@ namespace LibraryManagement
 
             for (int i = 0; i < colNo; i++)
             {
-                query += colStrings[i] + " = ";
-                query += "\'";
+                query += colStrings[i] + " = '";
                 query += values[i];
                 query += "\'";
                 if (i < colNo - 1)
@@ -142,21 +145,25 @@ namespace LibraryManagement
                     query += ", ";
                 }
             }
+            query += condition;
+            MessageBox.Show(query);
             //Open connection
-            if (this.OpenConnection() == true)
-            {
+            try {
                 //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
-                cmd.Connection = connection;
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
 
-                //Execute query
-                cmd.ExecuteNonQuery();
+                    //Execute query
+                    cmd.ExecuteNonQuery();
 
-                //close connection
-                this.CloseConnection();
+                    MessageBox.Show("Updated");
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -256,7 +263,7 @@ namespace LibraryManagement
                 }
             }
             query += "FROM " + tableName;
-            //check if condition given
+
             if (condition)
             {
                 query += " " + conQuery;

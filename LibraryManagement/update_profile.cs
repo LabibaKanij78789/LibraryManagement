@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
 namespace LibraryManagement
 {
     public partial class update_profile : Form
     
     {
         string name;
-        private MySqlConnection connection;
+        private DBConnect db;
         private string server;
         private string database;
         private string uid;
         private string pass;
+        private string tmpName;
+
         public update_profile(string uName)
         {
             InitializeComponent();
@@ -26,65 +29,51 @@ namespace LibraryManagement
             pictureBox1.BackColor = Color.Transparent;
             button1.BackColor = Color.Transparent;
             name = uName;
+            tmpName = uName;
             server = "localhost";
             database = "the_athenaeum";
             uid = "root";
-            pass = " ";
+            pass = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + pass + ";";
 
-           //connection = new MySqlConnection(connectionString);
-            
+            //connection = new MySqlConnection(connectionString);
+            db = new DBConnect(); 
             
         }
 
         private void update_profile_Load(object sender, EventArgs e)
         {
-            //string q1 = "select contact from user where name = \"" + name + "\"";
-            //string q2 = "select password from user where name = \"" + name + "\"";
-            //string q3 = "select membership.type from user inner join user on " +
-            //            "user.id = membership.u_id where user.name = \"" + name + "\"";
-            //nameBox.Text = name;
-            //try
-            //{
-            //    connection.Open();
-            //    MySqlCommand c1 = new MySqlCommand(q1, connection);
-            //    //Create a data reader and Execute the command
-            //    MySqlDataReader dataReader1 = c1.ExecuteReader();
+            string q1 = "SELECT usr.Contact_No,usr.password,mem.Type from user as usr " +
+                        "inner join membership as mem on mem.ID = usr.M_id " +
+                        "where usr.Name = '" + name + "'";
+            nameBox.Text = name;
 
-            //    //Read the data and store them in the list
-            //    while (dataReader1.Read())
-            //    {
-            //        contactBox.Text = dataReader1["contact"].ToString();
-            //    }
+            try
+            {
+                if (linkLabel1.Text != "Save")
+                {
+                    db.OpenConnection();
+                    MySqlCommand c1 = new MySqlCommand(q1, db.getConnection());
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader1 = c1.ExecuteReader();
 
+                    //Read the data and store them in the list
+                    while (dataReader1.Read())
+                    {
+                        contactBox.Text = dataReader1["Contact_No"].ToString();
+                        passBox.Text = dataReader1["password"].ToString();
+                        memBox.Text = dataReader1["Type"].ToString();
+                    }
 
-            //    MySqlCommand c2 = new MySqlCommand(q2, connection);
-            //    //Create a data reader and Execute the command
-            //    MySqlDataReader dataReader2 = c2.ExecuteReader();
-
-            //    //Read the data and store them in the list
-            //    while (dataReader2.Read())
-            //    {
-            //        passBox.Text = dataReader2["password"].ToString();
-            //    }
-
-
-            //    MySqlCommand c3 = new MySqlCommand(q3, connection);
-            //    //Create a data reader and Execute the command
-            //    MySqlDataReader dataReader3 = c3.ExecuteReader();
-
-            //    //Read the data and store them in the list
-            //    while (dataReader3.Read())
-            //    {
-            //        memBox.Text = dataReader3["membership.type"].ToString();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-                
-            //}
+                    db.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
@@ -100,11 +89,39 @@ namespace LibraryManagement
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //nameBox.Clear();
-            //contactBox.Clear();
-            //passBox.Clear();
-            //memBox.Clear();
-            
+
+            String name,contact_no,pass,member,query;
+            name = nameBox.Text;
+            contact_no = contactBox.Text;
+            pass = passBox.Text;
+            member = memBox.Text;
+            String[] colStrings = {"Name","password","Contact_No" };
+            String[] values = {name,pass,contact_no };
+
+            query = " WHERE Name = '" + tmpName + "'";
+
+            try
+            {
+                if (linkLabel1.Text == "Save")
+                {
+                    db.OpenConnection();
+                    db.Update("user", colStrings, values, query);
+                    db.CloseConnection();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            if (linkLabel1.Text != "Save")
+            {
+                nameBox.Clear();
+                contactBox.Clear();
+                passBox.Clear();
+                memBox.Clear();
+
+                linkLabel1.Text = "Save";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

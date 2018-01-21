@@ -47,11 +47,11 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Tomato;
             this.label5.Enabled = false;
-            this.label5.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label5.Location = new System.Drawing.Point(90, 470);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 26);
+            this.label5.Size = new System.Drawing.Size(126, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "Membership";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -61,11 +61,11 @@
             this.password.AutoSize = true;
             this.password.BackColor = System.Drawing.Color.Tomato;
             this.password.Enabled = false;
-            this.password.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.password.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.password.Location = new System.Drawing.Point(90, 348);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(87, 26);
+            this.password.Size = new System.Drawing.Size(100, 24);
             this.password.TabIndex = 5;
             this.password.Text = "Password";
             this.password.Click += new System.EventHandler(this.password_Click);
@@ -75,11 +75,11 @@
             this.contacts.AutoSize = true;
             this.contacts.BackColor = System.Drawing.Color.Tomato;
             this.contacts.Enabled = false;
-            this.contacts.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.contacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.contacts.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.contacts.Location = new System.Drawing.Point(90, 252);
             this.contacts.Name = "contacts";
-            this.contacts.Size = new System.Drawing.Size(82, 26);
+            this.contacts.Size = new System.Drawing.Size(90, 24);
             this.contacts.TabIndex = 6;
             this.contacts.Text = "Contacts";
             // 
@@ -88,11 +88,11 @@
             this.Name.AutoSize = true;
             this.Name.BackColor = System.Drawing.Color.Tomato;
             this.Name.Enabled = false;
-            this.Name.Font = new System.Drawing.Font("Minion Pro", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.Name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name.Location = new System.Drawing.Point(90, 156);
             this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(59, 26);
+            this.Name.Size = new System.Drawing.Size(65, 24);
             this.Name.TabIndex = 7;
             this.Name.Text = "Name";
             this.Name.Click += new System.EventHandler(this.Name_Click);
@@ -100,44 +100,44 @@
             // nameBox
             // 
             this.nameBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.nameBox.Font = new System.Drawing.Font("Minion Pro Med", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.nameBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.nameBox.Location = new System.Drawing.Point(320, 156);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(204, 30);
+            this.nameBox.Size = new System.Drawing.Size(204, 29);
             this.nameBox.TabIndex = 8;
             this.nameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // memBox
             // 
             this.memBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.memBox.Font = new System.Drawing.Font("Minion Pro Med", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.memBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.memBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.memBox.Location = new System.Drawing.Point(320, 467);
             this.memBox.Name = "memBox";
-            this.memBox.Size = new System.Drawing.Size(204, 30);
+            this.memBox.Size = new System.Drawing.Size(204, 29);
             this.memBox.TabIndex = 9;
             this.memBox.TextChanged += new System.EventHandler(this.memBox_TextChanged);
             // 
             // passBox
             // 
             this.passBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.passBox.Font = new System.Drawing.Font("Minion Pro Med", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.passBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.passBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.passBox.Location = new System.Drawing.Point(320, 348);
             this.passBox.Name = "passBox";
-            this.passBox.Size = new System.Drawing.Size(204, 30);
+            this.passBox.Size = new System.Drawing.Size(204, 29);
             this.passBox.TabIndex = 10;
             this.passBox.TextChanged += new System.EventHandler(this.passBox_TextChanged);
             // 
             // contactBox
             // 
             this.contactBox.BackColor = System.Drawing.Color.PeachPuff;
-            this.contactBox.Font = new System.Drawing.Font("Minion Pro Med", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.contactBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.contactBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.contactBox.Location = new System.Drawing.Point(320, 248);
             this.contactBox.Name = "contactBox";
-            this.contactBox.Size = new System.Drawing.Size(204, 30);
+            this.contactBox.Size = new System.Drawing.Size(204, 29);
             this.contactBox.TabIndex = 11;
             this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             // 
@@ -166,12 +166,12 @@
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Tomato;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Tomato;
-            this.linkLabel1.Font = new System.Drawing.Font("Minion Pro Med", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
             this.linkLabel1.Location = new System.Drawing.Point(909, 631);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(71, 26);
+            this.linkLabel1.Size = new System.Drawing.Size(76, 24);
             this.linkLabel1.TabIndex = 14;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Update";
