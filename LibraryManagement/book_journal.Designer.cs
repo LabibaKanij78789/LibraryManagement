@@ -46,11 +46,11 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkGray;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Coral;
             this.button1.Location = new System.Drawing.Point(1029, 44);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.Size = new System.Drawing.Size(84, 30);
             this.button1.TabIndex = 2;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
@@ -60,11 +60,11 @@
             // 
             this.searchInput.AcceptsTab = true;
             this.searchInput.BackColor = System.Drawing.Color.Transparent;
-            this.searchInput.Font = new System.Drawing.Font("Myriad Pro Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchInput.ForeColor = System.Drawing.Color.LightSalmon;
             this.searchInput.Location = new System.Drawing.Point(755, 42);
             this.searchInput.Name = "searchInput";
-            this.searchInput.Size = new System.Drawing.Size(233, 33);
+            this.searchInput.Size = new System.Drawing.Size(233, 31);
             this.searchInput.TabIndex = 4;
             this.searchInput.Click += new System.EventHandler(this.searchInput_Click);
             this.searchInput.TextChanged += new System.EventHandler(this.searchInput_TextChanged_1);
@@ -88,7 +88,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkGray;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Coral;
             this.button2.Location = new System.Drawing.Point(1123, 316);
             this.button2.Name = "button2";
@@ -102,7 +102,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkGray;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Coral;
             this.button3.Location = new System.Drawing.Point(1123, 480);
             this.button3.Name = "button3";

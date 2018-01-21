@@ -85,6 +85,7 @@ namespace LibraryManagement
         {
             colNo = colStrings.Length;
             string query = "INSERT INTO " + tableName + " (";
+
             for (int i = 0; i < colNo; i++)
             {
                 query += colStrings[i];
@@ -99,13 +100,13 @@ namespace LibraryManagement
                 }
             }
 
-            query += "VALUES(\'";
+            query += "VALUES(";
 
             for (int i = 0; i < colNo; i++)
             {
-                query += "\'";
+                query += "'";
                 query += values[i];
-                query += "\'";
+                query += "'";
                 if (i < colNo - 1)
                 {
                     query += ", ";
@@ -113,6 +114,8 @@ namespace LibraryManagement
             }
 
             query += ")";
+
+            MessageBox.Show(query);
 
             //open connection
             if (this.OpenConnection() == true)

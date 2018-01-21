@@ -45,7 +45,7 @@ namespace LibraryManagement
 
         private void update_profile_Load(object sender, EventArgs e)
         {
-            string q1 = "SELECT usr.Contact_No,usr.password,mem.Type from user as usr " +
+            string q1 = "SELECT usr.Contact,usr.password,mem.Type from user as usr " +
                         "inner join membership as mem on mem.ID = usr.M_id " +
                         "where usr.Name = '" + name + "'";
             nameBox.Text = name;
@@ -62,7 +62,7 @@ namespace LibraryManagement
                     //Read the data and store them in the list
                     while (dataReader1.Read())
                     {
-                        contactBox.Text = dataReader1["Contact_No"].ToString();
+                        contactBox.Text = dataReader1["Contact"].ToString();
                         passBox.Text = dataReader1["password"].ToString();
                         memBox.Text = dataReader1["Type"].ToString();
                     }

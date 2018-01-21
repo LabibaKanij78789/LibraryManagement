@@ -34,6 +34,7 @@ namespace LibraryManagement
             name = uName;
             status = getStatus;
             creatLog = bl;
+
             if (creatLog)
             {
                 string[] colBook = new[] { "id" };
@@ -84,26 +85,36 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select id from user where name = " + name;
-            string[] columns1 = new[] { "Name" };
+            string q = "select id from user where Name = '" + name+"'";
+            string[] columns1 = new[] { "id" };
 
-
-            result = db.selectSearch(q, columns1);
-            foreach (List<string> s in result)
+            try
             {
-                foreach (string r in s)
+                result = db.selectSearch(q, columns1);
+
+                foreach (List<string> s in result)
                 {
-                    user_id = r;
+                    foreach (string r in s)
+                    {
+                        user_id = r;
+                    }
                 }
+                //blName = label1.Text.ToString();
+                string[] columns2 = new[] { "u_id", "Name" };
+                string[] booklog = new[] { user_id, ct.Text.ToString() };
+                db.Insert("book_log", columns2, booklog);
+
+                string[] upcol = { "bookLog" };
+                string[] upval = { "1" };
+                string conQ = " where id = '" + user_id + "'";
+                db.OpenConnection();
+                db.Update("user", upcol, upval, conQ);
+                db.CloseConnection();
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
-            //blName = label1.Text.ToString();
-            string[] columns2 = new[] { "u_id", "Name" };
-            string[] booklog = new[] { user_id, ct.Text.ToString() };
-            db.Insert("book_log", columns2, booklog);
-            string[] upcol = { "bookLog" };
-            string[] upval = { "1" };
-            string conQ = "where name = '" + name + "'";
-            db.Update("user", upcol, upval, conQ);
             button1.Hide();
             panel1.Hide();
             label1.Hide();
