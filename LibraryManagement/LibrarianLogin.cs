@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static LibraryManagement.DBConnect;
-
+using System.Data.SqlClient;
 namespace LibraryManagement
 {
     public partial class LibrarianLogin : Form
     {
-        string[] s = new string[2];
-        string[] col = new string[2];
-        List<string>[] result = new List<string>[1];
-        DBConnect instance = new DBConnect();
         public LibrarianLogin()
         {
             InitializeComponent();
             
 
+
+
         }
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
+
 
         private void LibrarianLogin_Load(object sender, EventArgs e)
         {
@@ -31,50 +30,38 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            s[0] = textBox1.Text.ToString();
-            s[1] = textBox2.Text.ToString();
-            
-            col[0] = "Name";
-            col[1] = "password";
-            int c1 = s[0].Length;
-            int c2 = s[1].Length;
             try
             {
-                if (c1 == 0 || c2 == 0)
+                String username;
+                String password, counter = null;
+                username = txtusername.Text;
+                password = txtpassword.Text;
+
+
+
+                con.Open();
+                String query = "SELECT count(*) FROM Librarian WHERE username='" + username + "' AND userpassword='" + password + "';";
+                SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                SDA.Fill(dt);
+                if (dt.Rows[0][0].ToString() == "1")
                 {
-                    MessageBox.Show("Please input first!!");
+                    Progressbar ob = new Progressbar();
+                    this.Hide();
+                    ob.Show();
                 }
                 else
                 {
-                    string no = "";
-                    instance.OpenConnection();
-
-                    //instance.Insert("user", col, s);
-                    result = instance.Select("user", col, false, no);
-                    if (result.Any())
-                    {
-                        MemberPage ob = new MemberPage(s[0]);
-                        this.Hide();
-                        ob.Show();
-                    }
-
-                    else
-                    {
-                        
-                        MessageBox.Show("Wrong input!");
-                        
-                    }
+                    MessageBox.Show("Invalid input");
                 }
-            }
-            catch (Exception exception)
+
+
+                con.Close();
+            }catch(Exception ex)
             {
-                Console.WriteLine(exception);
-                throw;
+
             }
-            
-            
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,11 +76,6 @@ namespace LibraryManagement
             Forgetpassword ob = new Forgetpassword();
             this.Hide();
             ob.Show();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
