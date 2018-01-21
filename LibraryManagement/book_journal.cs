@@ -22,12 +22,15 @@ namespace LibraryManagement
         bool flag = false;
         string searchString;
         string query;
+        private int avail;
         private MySqlConnection connection;
         private string server;
         private string database;
         private string uid;
         private string password;
+        string selectedBook;
         DBConnect db = new DBConnect();
+        string p;
         private List<List<string>> resultString = new List<List<string>>();
         public book_journal()
         {
@@ -83,11 +86,11 @@ namespace LibraryManagement
                     "section.type = '" + searchString + "' or publisher.name = '" + searchString + "'";
 
             resultString = db.selectSearch(query, columns);
-            //bookData.ColumnCount = 7;
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    bookData.Columns[i].HeaderCell.Value = columns[i];
-            //}
+            bookData.ColumnCount = 7;
+            for (int i = 0; i < 7; i++)
+            {
+                bookData.Columns[i].HeaderCell.Value = columns[i];
+            }
             DataTable table = new DataTable();
             for (int i = 0; i < 7; i++)
             {
@@ -98,6 +101,110 @@ namespace LibraryManagement
                 table.Rows.Add(array.ToArray());
             }
             bookData.DataSource = table;
+        }
+
+        private void bookData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bookData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (bookData.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                selectedBook = bookData.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string[] columns = new[] { "available" };
+            query = "Select available from books where name = '" + selectedBook + "'";
+
+            resultString = db.selectSearch(query, columns);
+            foreach (List<string> s in resultString)
+            {
+                foreach (string r in s)
+                {
+                    p = r;
+                }
+            }
+
+            avail = Convert.ToInt16(p);
+            if (avail == 0)
+            {
+
+                MessageBox.Show("sorry this book is not available!!!");
+            }
+            else
+            {
+                MessageBox.Show("This book has been booked for you. Thank you");
+                avail--;
+                db.Update("books", columns, new []{avail.ToString()}, "where name = '"+selectedBook+"'");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[] columns1 = new[] { "available" };
+            query = "Select available from books where name = '" + selectedBook + "'";
+
+            resultString = db.selectSearch(query, columns1);
+            foreach (List<string> s in resultString)
+            {
+                foreach (string r in s)
+                {
+                    p = r;
+                }
+            }
+
+            avail = Convert.ToInt16(p);
+            if (avail == 0)
+            {
+
+                MessageBox.Show("sorry this book is not available!!!");
+            }
+            else
+            {
+                string[] columns = new[] { "price" };
+                query = "Select price from books where name = '" + selectedBook + "'";
+
+                resultString = db.selectSearch(query, columns);
+                foreach (List<string> s in resultString)
+                {
+                    foreach (string r in s)
+                    {
+                        p = r;
+                    }
+                }
+
+
+
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to buy this book for " + p + " taka??",
+                    selectedBook + "purchase", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //do something
+                    DialogResult dr = MessageBox.Show(p + " taka is cut off from your mobile account.",
+                        selectedBook + "purchase", MessageBoxButtons.OKCancel);
+                    if (dr == DialogResult.OK)
+                    {
+                        MessageBox.Show("This book is booked for you. Hope to see you soon to get this! Thank you.");
+                        avail--;
+                        db.Update("books", columns1, new[] { avail.ToString() }, "where name = '" + selectedBook + "'");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hope you will have a nice book read!");
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                    MessageBox.Show("Hope you will have a nice book read!");
+                }
+            }
+            
         }
 
         //this.bindGrid();

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace LibraryManagement
 {
@@ -21,6 +22,7 @@ namespace LibraryManagement
             Panel.Add(panel2);
             Panel[item].BringToFront();
         }
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
         
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -79,6 +81,39 @@ namespace LibraryManagement
             {
 
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                String id1, name, contract, timeid1, username, password, security, answer;
+                id1 = txtlibid.Text;
+                name = txtlibname.Text;
+                contract = txtlibcontact.Text;
+                timeid1 = txtlibtimeid.Text;
+                username = txtusername.Text;
+                password = txtuserpassword.Text;
+                security = comboboxsecurity.Text;
+                answer = txtanswer.Text;
+                int id, timeid;
+                id = Convert.ToInt32(id1);
+                timeid = Convert.ToInt32(timeid1);
+                if (id1.Length != 0 && name.Length != 0 && contract.Length != 0 && timeid1.Length != 0 && username.Length != 0 && password.Length != 0 && security.Length != 0 && answer.Length != 0)
+                {
+                    con.Open();
+                    String query = "INSERT INTO Librarian (libid,libname,libcontract,libtimeid,username,userpassword,securityquestion,answer) Values(" + id + ",'" + name + "','" + contract + "'," + timeid + ",'" + username + "','" + password + "','" + security + "','" + answer + "');";
+                    SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+                    SDA.SelectCommand.ExecuteNonQuery();
+                    MessageBox.Show("Welcome Librarian");
+                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Enter Information properly");
+                }
+            }catch(Exception ex) { }
         }
     }
 }

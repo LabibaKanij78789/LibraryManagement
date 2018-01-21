@@ -40,18 +40,23 @@
             this.BL = new System.Windows.Forms.LinkLabel();
             this.GS = new System.Windows.Forms.LinkLabel();
             this.BJ = new System.Windows.Forms.LinkLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Noti = new System.Windows.Forms.LinkLabel();
             this.button6 = new System.Windows.Forms.Button();
             this.UP = new System.Windows.Forms.LinkLabel();
+            this.searchText = new LibraryManagement.CustomTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -107,6 +112,7 @@
             this.groupBox1.Controls.Add(this.BL);
             this.groupBox1.Controls.Add(this.GS);
             this.groupBox1.Controls.Add(this.BJ);
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.groupBox1.Location = new System.Drawing.Point(39, 173);
@@ -203,6 +209,16 @@
             this.BJ.Text = "Books and Journals";
             this.BJ.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BJ_LinkClicked);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(57, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(815, 415);
+            this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // groupBox2
             // 
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -218,6 +234,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1198, 199);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // pictureBox4
             // 
@@ -271,6 +288,37 @@
             this.UP.Text = "Update Profile";
             this.UP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UP_LinkClicked);
             // 
+            // searchText
+            // 
+            this.searchText.BackColor = System.Drawing.Color.Transparent;
+            this.searchText.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchText.Location = new System.Drawing.Point(533, 38);
+            this.searchText.Name = "searchText";
+            this.searchText.Size = new System.Drawing.Size(277, 30);
+            this.searchText.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(836, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 30);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(1000, 389);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(152, 30);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "View Details";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MemberPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,11 +326,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.searchText);
             this.Controls.Add(this.userName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.title);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "MemberPage";
@@ -296,6 +347,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pgs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -324,5 +376,9 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private CustomTextBox searchText;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
     }
 }

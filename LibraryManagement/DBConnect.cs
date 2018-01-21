@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -125,7 +126,7 @@ namespace LibraryManagement
         }
 
         //Update statement
-        public void Update(String tableName, String[] colStrings, String[] values)
+        public void Update(String tableName, String[] colStrings, String[] values, string condition)
         {
             string query = "UPDATE " + tableName + " SET ";
             colNo = colStrings.Length;
@@ -142,6 +143,8 @@ namespace LibraryManagement
                     query += ", ";
                 }
             }
+
+            query += " " + condition;
             //Open connection
             if (this.OpenConnection() == true)
             {

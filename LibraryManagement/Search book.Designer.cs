@@ -113,6 +113,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Search_book";
             this.Text = "Search_book";
+            this.Load += new System.EventHandler(this.Search_book_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.searchInput = new LibraryManagement.CustomTextBox();
             this.bookData = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +77,40 @@
             this.bookData.AllowUserToResizeRows = false;
             this.bookData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.bookData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bookData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bookData.Location = new System.Drawing.Point(0, 161);
+            this.bookData.Location = new System.Drawing.Point(79, 161);
             this.bookData.Name = "bookData";
-            this.bookData.Size = new System.Drawing.Size(1264, 520);
+            this.bookData.Size = new System.Drawing.Size(986, 464);
             this.bookData.TabIndex = 5;
+            this.bookData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookData_CellClick);
+            this.bookData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookData_CellContentClick);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Coral;
+            this.button2.Location = new System.Drawing.Point(1123, 316);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Buy";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkGray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Coral;
+            this.button3.Location = new System.Drawing.Point(1123, 480);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 30);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Borrow";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // book_journal
             // 
@@ -87,6 +118,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.bookData);
             this.Controls.Add(this.searchInput);
             this.Controls.Add(this.button1);
@@ -104,5 +137,7 @@
         private System.Windows.Forms.Button button1;
         private CustomTextBox searchInput;
         private System.Windows.Forms.DataGridView bookData;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

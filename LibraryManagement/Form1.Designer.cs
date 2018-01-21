@@ -69,7 +69,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -91,7 +90,6 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "User";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 

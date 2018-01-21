@@ -118,85 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="back-1689836_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back-1689836_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="newstudent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newstudent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="downloading-updates-xxl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\downloading-updates-xxl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="return book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="AcademicBookWeek1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AcademicBookWeek.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pile of books1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pile of books.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginImage-400x300" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loginImage-400x300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="issuebook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\issuebook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="back-1689836_960_7201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back-1689836_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="updateBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\updateBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booklog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\booklog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newstudent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newstudent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="suggestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\suggestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pile of books" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pile of books.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="notification-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notification-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AcademicBookWeek" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AcademicBookWeek.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="statistics" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\statistics.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="AcademicBookWeek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AcademicBookWeek.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="downloading-updates-xxl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\downloading-updates-xxl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back-1689836_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back-1689836_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pile of books" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pile of books.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="booklog" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\booklog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="suggestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\suggestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loginImage-400x300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loginImage-400x300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pile of books1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pile of books.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notification-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notification-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="newbook" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newbook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="updateBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\updateBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back-1689836_960_7202" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back-1689836_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
