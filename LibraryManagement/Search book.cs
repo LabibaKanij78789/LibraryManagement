@@ -20,7 +20,7 @@ namespace LibraryManagement
         string search;
         DBConnect db = new DBConnect();
         string q;
-        string[] col = new []{"book_tile"};
+        string[] col = new []{"book_title"};
         List<List<string>> result = new List<List<string>>();
 
         string getStatus;
@@ -102,16 +102,18 @@ namespace LibraryManagement
         private void button2_Click(object sender, EventArgs e)
         {
             
-            bookLog bl = new bookLog(name, selectedBook, getStatus, true);
+            bookLog bl = new bookLog(name, selectedBook, getStatus, true, "p");
             this.Hide();
             bl.Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBoxItem select = (ComboBoxItem)comboBox1.SelectedItem;
+            //ComboBoxItem select = (ComboBoxItem)comboBox1.SelectedItem;
             
-            getStatus = select.ToString();
+            //getStatus = select.ToString();
+            getStatus = comboBox1.SelectedItem.ToString();
+            MessageBox.Show(getStatus);
         }
 
         private void Search_book_Load(object sender, EventArgs e)

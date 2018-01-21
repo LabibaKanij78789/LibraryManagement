@@ -76,5 +76,10 @@ namespace LibraryManagement
             this.Hide();
             mp.Show();
         }
+
+        private void booksBought_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -75,6 +75,12 @@
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="enterAsMem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enterAsMem.Designer.cs">
+      <DependentUpon>enterAsMem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forgetpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomTextBox.resx">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enterAsMem.resx">
+      <DependentUpon>enterAsMem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forgetpassword.resx">
       <DependentUpon>Forgetpassword.cs</DependentUpon>

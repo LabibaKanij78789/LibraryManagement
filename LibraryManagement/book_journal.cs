@@ -203,6 +203,17 @@ namespace LibraryManagement
             
         }
 
+        private void book_journal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new MemberPage("labiba").Show();
+        }
+
         //this.bindGrid();
 
         ////StreamWriter listFile = new StreamWriter("D:\\Studies\\3.2\\SD\\LibraryManagement4\\LibraryManagement\\LibraryManagement\\Text files\\bookData.txt");
