@@ -22,7 +22,7 @@ namespace LibraryManagement
             Panel.Add(panel2);
             Panel[item].BringToFront();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
+        //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -82,7 +82,7 @@ namespace LibraryManagement
         {
             try
             {
-                con.Open();
+                //con.Open();
                 String bookid1, name, edition1, status, price1, author, genre, publisher, section, amount1;
                 bookid1 = txtbookid.Text;
                 name = txtname.Text;
@@ -103,9 +103,9 @@ namespace LibraryManagement
 
 
                 String query = "INSERT INTO Newbook1(bookid,name,edition,bookstatus,price,author,genre,publisher,section,amount)Values(" + bookid + ",'" + name + "'," + edition + ",'" + status + "'," + price + ",'" + author + "','" + genre + "','" + publisher + "','" + section + "'," + amount + ");";
-                SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-                SDA.SelectCommand.ExecuteNonQuery();
-                con.Close();
+               // SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+               // SDA.SelectCommand.ExecuteNonQuery();
+                //con.Close();
                 MessageBox.Show("New Book record is created ");
 
 

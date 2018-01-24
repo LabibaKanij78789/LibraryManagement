@@ -99,7 +99,7 @@
             this.Column2});
             this.dataGridView1.Location = new System.Drawing.Point(132, 163);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(777, 402);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 402);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 

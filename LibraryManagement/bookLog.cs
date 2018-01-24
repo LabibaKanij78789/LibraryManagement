@@ -39,7 +39,7 @@ namespace LibraryManagement
                 string[] colBook = new[] { "id" };
                 string qb = "select id from books where name = '" + name + "'";
                 string[] colBooklog = new[] { "id" };
-                string qbl = "select id from books where name = '" + ct.Text.ToString() + "'";
+                string qbl = "select id from book_log where name = '" + ct.Text.ToString() + "'";
                 result = db.selectSearch(qb, colBook);
                 result2 = db.selectSearch(qbl, colBooklog);
 
