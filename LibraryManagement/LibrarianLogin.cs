@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static LibraryManagement.DBConnect;
 namespace LibraryManagement
 {
     public partial class LibrarianLogin : Form
     {
+        string query;
+        DBConnect db = new DBConnect();
         public LibrarianLogin()
         {
             InitializeComponent();
@@ -20,7 +23,7 @@ namespace LibraryManagement
 
 
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
+        //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
 
 
         private void LibrarianLogin_Load(object sender, EventArgs e)
@@ -39,12 +42,14 @@ namespace LibraryManagement
 
 
 
-                con.Open();
-                String query = "SELECT count(*) FROM Librarian WHERE username='" + username + "' AND userpassword='" + password + "';";
-                SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                SDA.Fill(dt);
-                if (dt.Rows[0][0].ToString() == "1")
+                //con.Open();
+                query = " WHERE username='" + username + "' AND password='" + password + "';";
+                //SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+                //List<List<string>> result = new List<List<string>>();
+                //result = db.selectSearch
+                //DataTable dt = new DataTable();
+                //SDA.Fill(dt);
+                if (db.SelectAll("library", query))
                 {
                     Progressbar ob = new Progressbar();
                     this.Hide();
@@ -56,10 +61,10 @@ namespace LibraryManagement
                 }
 
 
-                con.Close();
+               // con.Close();
             }catch(Exception ex)
-            {
-
+            { 
+                
             }
 
         }

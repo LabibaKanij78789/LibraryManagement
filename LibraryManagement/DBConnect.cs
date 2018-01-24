@@ -85,6 +85,7 @@ namespace LibraryManagement
         {
             colNo = colStrings.Length;
             string query = "INSERT INTO " + tableName + " (";
+
             for (int i = 0; i < colNo; i++)
             {
                 query += colStrings[i];
@@ -99,13 +100,13 @@ namespace LibraryManagement
                 }
             }
 
-            query += "VALUES(\'";
+            query += "VALUES(";
 
             for (int i = 0; i < colNo; i++)
             {
-                query += "\'";
+                query += "'";
                 query += values[i];
-                query += "\'";
+                query += "'";
                 if (i < colNo - 1)
                 {
                     query += ", ";
@@ -113,6 +114,8 @@ namespace LibraryManagement
             }
 
             query += ")";
+
+            MessageBox.Show(query);
 
             //open connection
             if (this.OpenConnection() == true)
@@ -199,53 +202,52 @@ namespace LibraryManagement
         }
 
         //Select statement
-        public List<string>[] SelectAll(String tableName, String[] colStrings)
+        public Boolean SelectAll(String tableName, string condition)
         {
-            string query = "SELECT * FROM "+tableName;
-            colNo = colStrings.Length;
-            //Create a list to store the result
-            List<string>[] list = new List<string>[colNo];
-            for (int i = 0; i < colNo; i++)
-            {
-                list[i] = new List<string>();
-            }
-            //list[0] = new List<string>();
-            //list[1] = new List<string>();
-            //list[2] = new List<string>();
+            string query = "SELECT * FROM "+tableName+condition;
+            //colNo = colStrings.Length;
+            ////Create a list to store the result
+            //List<string>[] list = new List<string>[colNo];
+            //for (int i = 0; i < colNo; i++)
+            //{
+            //    list[i] = new List<string>();
+            //}
+            ////list[0] = new List<string>();
+            ////list[1] = new List<string>();
+            ////list[2] = new List<string>();
 
-            //Open connection
-            if (this.OpenConnection() == true)
+            try
             {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (dataReader.Read())
+                if (this.OpenConnection() == true)
                 {
-                    for (int i = 0; i < colNo; i++)
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    MessageBox.Show(dataReader.HasRows.ToString());
+
+                    if (dataReader.HasRows)
                     {
-                        list[i].Add(dataReader[colStrings[i]] + "");
+                        return true;
                     }
-                    //list[0].Add(dataReader["id"] + "");
-                    //list[1].Add(dataReader["name"] + "");
-                    //list[2].Add(dataReader["age"] + "");
+                    else
+                    {
+                        return false;
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    this.CloseConnection();
+
                 }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                this.CloseConnection();
-
-                //return list to be displayed
-                return list;
-            }
-            else
+            }catch(Exception ex)
             {
-                return list;
+                MessageBox.Show(ex.ToString());
             }
+            return false;
         }
         //select specific
 
@@ -323,6 +325,7 @@ namespace LibraryManagement
         public List<List<string>> selectSearch(string query, string[] colStrings)
         {
             string q = query;
+            MessageBox.Show(query);
             //Create a list to store the result
             List<List<string>> list = new List<List<string>>();
 

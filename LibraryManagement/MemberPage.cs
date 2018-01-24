@@ -173,7 +173,7 @@ namespace LibraryManagement
 
             
             Boolean bookLog = Convert.ToBoolean(bl);
-            bookLog blg = new bookLog(name, null, null, bookLog);
+            bookLog blg = new bookLog(name, null, null, bookLog, "m");
             this.Hide();
             blg.Show();
         }
@@ -193,7 +193,7 @@ namespace LibraryManagement
             }
 
             Boolean bookLog = Convert.ToBoolean(bl);
-            bookLog blg = new bookLog(name, null, null, bookLog);
+            bookLog blg = new bookLog(name, null, null, bookLog, "m");
             this.Hide();
             blg.Show();
         }

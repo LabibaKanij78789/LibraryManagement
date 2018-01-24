@@ -20,13 +20,14 @@ namespace LibraryManagement
         DBConnect db = new DBConnect();
         string name;
         string status;
-
+        string bk;
         string book_id;
         string bl_id;
 
         List<List<string>> result = new List<List<string>>();
         List<List<string>> result2 = new List<List<string>>();
-        public bookLog(string uName, string book, string getStatus, Boolean bl)
+        string page;
+        public bookLog(string uName, string book, string getStatus, Boolean bl, string p)
         {
             InitializeComponent();
             this.dataGridView1.Hide();
@@ -34,44 +35,66 @@ namespace LibraryManagement
             name = uName;
             status = getStatus;
             creatLog = bl;
-            if (creatLog)
+            page = p;
+            bk = book;
+            
+
+            try
             {
-                string[] colBook = new[] { "id" };
-                string qb = "select id from books where name = '" + name + "'";
-                string[] colBooklog = new[] { "id" };
-                string qbl = "select id from book_log where name = '" + ct.Text.ToString() + "'";
-                result = db.selectSearch(qb, colBook);
-                result2 = db.selectSearch(qbl, colBooklog);
-
-                foreach (List<string> s in result)
+                if (creatLog)
                 {
-                    foreach (string r in s)
+                    if (page == "p")
                     {
-                        book_id = r;
+                        string[] colBook = new[] { "id" };
+                        string qb = "select id from books where name = '" + bk + "'";
+                        string[] colBooklog = new[] { "id" };
+                        string qbl = "select book_log.id from book_log inner join user on book_log.u_id = user.id where user.name  = '" + name + "'";
+
+                        result = db.selectSearch(qb, colBook);
+
+                        result2 = db.selectSearch(qbl, colBooklog);
+
+                        foreach (List<string> s in result)
+                        {
+                            foreach (string r in s)
+                            {
+                                book_id = r;
+                            }
+                        }
+                        foreach (List<string> s in result2)
+                        {
+                            foreach (string r in s)
+                            {
+                                bl_id = r;
+                            }
+                        }
+                        string[] col = new[] { "b_id", "bl_id", "status" };
+                        string[] val = new[] { book_id, bl_id, status };
+
+                        MessageBox.Show(val[0]);
+                        MessageBox.Show(val[1]);
+                        MessageBox.Show(val[2]);
+
+                        db.Insert("contains", col, val);
                     }
+
+                    button1.Hide();
+                    panel1.Hide();
+                    label1.Hide();
+                    add.Show();
+                    dataGridView1.Show();
+
+
                 }
-                foreach (List<string> s in result2)
+
+                else
                 {
-                    foreach (string r in s)
-                    {
-                        bl_id = r;
-                    }
+                    this.dataGridView1.Hide();
+                    this.add.Hide();
                 }
-                button1.Hide();
-                panel1.Hide();
-                label1.Hide();
-                add.Show();
-                dataGridView1.Show();
-                string[] col = new[] { "b_id", "bl_id", "status" };
-                string[] val = new[] { book_id, bl_id, status };
-                db.Insert("contains", col, val);
-
-            }
-
-            else
+            }catch(Exception ex)
             {
-                this.dataGridView1.Hide();
-                this.add.Hide();
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -84,26 +107,36 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select id from user where name = " + name;
-            string[] columns1 = new[] { "Name" };
+            string q = "select id from user where Name = '" + name+"'";
+            string[] columns1 = new[] { "id" };
 
-
-            result = db.selectSearch(q, columns1);
-            foreach (List<string> s in result)
+            try
             {
-                foreach (string r in s)
+                result = db.selectSearch(q, columns1);
+
+                foreach (List<string> s in result)
                 {
-                    user_id = r;
+                    foreach (string r in s)
+                    {
+                        user_id = r;
+                    }
                 }
+                //blName = label1.Text.ToString();
+                string[] columns2 = new[] { "u_id", "Name" };
+                string[] booklog = new[] { user_id, ct.Text.ToString() };
+                db.Insert("book_log", columns2, booklog);
+
+                string[] upcol = { "bookLog" };
+                string[] upval = { "1" };
+                string conQ = " where id = '" + user_id + "'";
+                db.OpenConnection();
+                db.Update("user", upcol, upval, conQ);
+                db.CloseConnection();
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
-            //blName = label1.Text.ToString();
-            string[] columns2 = new[] { "u_id", "Name" };
-            string[] booklog = new[] { user_id, ct.Text.ToString() };
-            db.Insert("book_log", columns2, booklog);
-            string[] upcol = { "bookLog" };
-            string[] upval = { "1" };
-            string conQ = "where name = '" + name + "'";
-            db.Update("user", upcol, upval, conQ);
             button1.Hide();
             panel1.Hide();
             label1.Hide();
@@ -128,6 +161,12 @@ namespace LibraryManagement
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new MemberPage("labiba").Show();
         }
     }
 }

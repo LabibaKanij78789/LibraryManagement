@@ -96,7 +96,7 @@ namespace LibraryManagement
             pass = passBox.Text;
             member = memBox.Text;
             String[] colStrings = {"Name","password","Contact" };
-            String[] values = {name,pass,contact_no };
+            String[] values = {name,pass, contact_no };
 
             query = " WHERE Name = '" + tmpName + "'";
 
@@ -157,6 +157,12 @@ namespace LibraryManagement
         private void memBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new MemberPage("labiba").Show();
         }
     }
 }
