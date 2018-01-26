@@ -43,7 +43,7 @@ namespace LibraryManagement
 
         public void nameUser()
         {
-            
+
         }
 
         private void logoff_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace LibraryManagement
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -71,7 +71,7 @@ namespace LibraryManagement
             i++;
             if (i % 2 == 1)
             {
-                
+
                 a.Location = new Point(1150, 70);
                 a.Size = new Size(87, 30);
                 a.Text = "Delete User";
@@ -89,16 +89,16 @@ namespace LibraryManagement
             {
                 a.Hide();
                 b.Hide();
-                
-                
+
+
 
             }
-            
-            
-            
+
+
+
         }
-        
-        
+
+
         void b_clicked(object sender, LinkLabelLinkClickedEventArgs c)
         {
             LinkLabel b = sender as LinkLabel;
@@ -113,10 +113,10 @@ namespace LibraryManagement
         void a_clicked(object sender, LinkLabelLinkClickedEventArgs c)
         {
             LinkLabel a = sender as LinkLabel;
-            
+
             if (a != null)
             {
-                instance.Delete("user","Name", name );
+                instance.Delete("user", "Name", name);
                 Form1 ob = new Form1();
                 this.Hide();
                 ob.Show();
@@ -155,30 +155,30 @@ namespace LibraryManagement
                         userId = r;
                     }
                 }
-                
-                    string query = "select reqPending from user where id = '" + userId + "'";
-                    result = instance.selectSearch(query, new[] { "reqPending" });
-                    int.TryParse(result[0][0], out n);
-                    if (n <= 0)
-                    {
-                        pictureBox4.Enabled = false;
-                        Noti.Enabled = false;
-                    }
-                    
 
-                
+                string query = "select reqPending from user where id = '" + userId + "'";
+                result = instance.selectSearch(query, new[] { "reqPending" });
+                int.TryParse(result[0][0], out n);
+                if (n <= 0)
+                {
+                    pictureBox4.Enabled = false;
+                    Noti.Enabled = false;
+                }
+
+
+
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.ToString());
-                throw;
+                //throw;
             }
         }
 
         private void pbj_Click(object sender, EventArgs e)
         {
-           book_journal ob = new book_journal("labiba", userId);
-           this.Hide();
+            book_journal ob = new book_journal("labiba", userId);
+            this.Hide();
             ob.Show();
         }
 
@@ -217,7 +217,7 @@ namespace LibraryManagement
 
         private void BL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -229,7 +229,7 @@ namespace LibraryManagement
 
         private void BP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -241,7 +241,7 @@ namespace LibraryManagement
 
         private void UP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -295,7 +295,7 @@ namespace LibraryManagement
                 MessageBox.Show(exception.ToString());
                 //throw;
             }
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -322,7 +322,7 @@ namespace LibraryManagement
             {
                 MessageBox.Show(exception.ToString());
             }
-            
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -346,7 +346,7 @@ namespace LibraryManagement
             {
                 string q = "select bookLog from book_log inner join user where book_log.u_id = user.id where id = " +
                            userId;
-                string[] col = new[] {"bookLog"};
+                string[] col = new[] { "bookLog" };
 
                 result = instance.selectSearch(q, col);
                 foreach (List<string> s in result)
@@ -366,7 +366,7 @@ namespace LibraryManagement
             {
                 MessageBox.Show(ex.ToString());
             }
-    }
+        }
 
         private void Noti_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -387,7 +387,7 @@ namespace LibraryManagement
                 MessageBox.Show(exception.ToString());
                 throw;
             }
-            
+
         }
 
         private void upP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -403,7 +403,7 @@ namespace LibraryManagement
                 MessageBox.Show(exception.ToString());
                 throw;
             }
-            
+
         }
     }
 }
