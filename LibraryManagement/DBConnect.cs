@@ -374,9 +374,9 @@ namespace LibraryManagement
             return list;
         }
         //Count statement
-        public int Count(String tableName)
+        public int Count(string tableName, string condition)
         {
-            string query = "SELECT Count(*) FROM"+tableName;
+            string query = "SELECT Count(*) FROM " + tableName + " where ";
             int Count = -1;
 
             //Open Connection

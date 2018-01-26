@@ -32,24 +32,23 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bookP = new System.Windows.Forms.LinkLabel();
+            this.bookL = new System.Windows.Forms.LinkLabel();
+            this.gs = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbl = new System.Windows.Forms.PictureBox();
             this.pgs = new System.Windows.Forms.PictureBox();
             this.pbj = new System.Windows.Forms.PictureBox();
-            this.BP = new System.Windows.Forms.LinkLabel();
-            this.BL = new System.Windows.Forms.LinkLabel();
-            this.GS = new System.Windows.Forms.LinkLabel();
             this.BJ = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Noti = new System.Windows.Forms.LinkLabel();
+            this.upP = new System.Windows.Forms.LinkLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Noti = new System.Windows.Forms.LinkLabel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.UP = new System.Windows.Forms.LinkLabel();
-            this.searchText = new LibraryManagement.CustomTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.searchText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -104,13 +103,13 @@
             // groupBox1
             // 
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.bookP);
+            this.groupBox1.Controls.Add(this.bookL);
+            this.groupBox1.Controls.Add(this.gs);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pbl);
             this.groupBox1.Controls.Add(this.pgs);
             this.groupBox1.Controls.Add(this.pbj);
-            this.groupBox1.Controls.Add(this.BP);
-            this.groupBox1.Controls.Add(this.BL);
-            this.groupBox1.Controls.Add(this.GS);
             this.groupBox1.Controls.Add(this.BJ);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -121,6 +120,63 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // bookP
+            // 
+            this.bookP.ActiveLinkColor = System.Drawing.Color.White;
+            this.bookP.AutoSize = true;
+            this.bookP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bookP.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bookP.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.bookP.LinkColor = System.Drawing.Color.Coral;
+            this.bookP.Location = new System.Drawing.Point(990, 163);
+            this.bookP.Name = "bookP";
+            this.bookP.Padding = new System.Windows.Forms.Padding(2);
+            this.bookP.Size = new System.Drawing.Size(123, 28);
+            this.bookP.TabIndex = 15;
+            this.bookP.TabStop = true;
+            this.bookP.Text = "Book Possession";
+            this.bookP.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.bookP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bookP_LinkClicked);
+            // 
+            // bookL
+            // 
+            this.bookL.ActiveLinkColor = System.Drawing.Color.White;
+            this.bookL.AutoSize = true;
+            this.bookL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bookL.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookL.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bookL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.bookL.LinkColor = System.Drawing.Color.Coral;
+            this.bookL.Location = new System.Drawing.Point(702, 163);
+            this.bookL.Name = "bookL";
+            this.bookL.Padding = new System.Windows.Forms.Padding(2);
+            this.bookL.Size = new System.Drawing.Size(79, 28);
+            this.bookL.TabIndex = 14;
+            this.bookL.TabStop = true;
+            this.bookL.Text = "Book Log";
+            this.bookL.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.bookL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bookL_LinkClicked);
+            // 
+            // gs
+            // 
+            this.gs.ActiveLinkColor = System.Drawing.Color.White;
+            this.gs.AutoSize = true;
+            this.gs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gs.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.gs.LinkColor = System.Drawing.Color.Coral;
+            this.gs.Location = new System.Drawing.Point(375, 163);
+            this.gs.Name = "gs";
+            this.gs.Padding = new System.Windows.Forms.Padding(2);
+            this.gs.Size = new System.Drawing.Size(123, 28);
+            this.gs.TabIndex = 13;
+            this.gs.TabStop = true;
+            this.gs.Text = "Get Suggestions";
+            this.gs.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.gs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // pictureBox2
             // 
@@ -165,48 +221,23 @@
             this.pbj.TabStop = false;
             this.pbj.Click += new System.EventHandler(this.pbj_Click);
             // 
-            // BP
-            // 
-            this.BP.AutoSize = true;
-            this.BP.Location = new System.Drawing.Point(999, 168);
-            this.BP.Name = "BP";
-            this.BP.Size = new System.Drawing.Size(88, 13);
-            this.BP.TabIndex = 7;
-            this.BP.TabStop = true;
-            this.BP.Text = "Book Possession";
-            this.BP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BP_LinkClicked);
-            // 
-            // BL
-            // 
-            this.BL.AutoSize = true;
-            this.BL.Location = new System.Drawing.Point(711, 168);
-            this.BL.Name = "BL";
-            this.BL.Size = new System.Drawing.Size(53, 13);
-            this.BL.TabIndex = 5;
-            this.BL.TabStop = true;
-            this.BL.Text = "Book Log";
-            this.BL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BL_LinkClicked);
-            // 
-            // GS
-            // 
-            this.GS.AutoSize = true;
-            this.GS.Location = new System.Drawing.Point(388, 168);
-            this.GS.Name = "GS";
-            this.GS.Size = new System.Drawing.Size(85, 13);
-            this.GS.TabIndex = 3;
-            this.GS.TabStop = true;
-            this.GS.Text = "Get Suggestions";
-            this.GS.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GS_LinkClicked);
-            // 
             // BJ
             // 
+            this.BJ.ActiveLinkColor = System.Drawing.Color.White;
             this.BJ.AutoSize = true;
-            this.BJ.Location = new System.Drawing.Point(75, 168);
+            this.BJ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BJ.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BJ.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BJ.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.BJ.LinkColor = System.Drawing.Color.Coral;
+            this.BJ.Location = new System.Drawing.Point(57, 163);
             this.BJ.Name = "BJ";
-            this.BJ.Size = new System.Drawing.Size(100, 13);
+            this.BJ.Padding = new System.Windows.Forms.Padding(2);
+            this.BJ.Size = new System.Drawing.Size(144, 28);
             this.BJ.TabIndex = 1;
             this.BJ.TabStop = true;
             this.BJ.Text = "Books and Journals";
+            this.BJ.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.BJ.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BJ_LinkClicked);
             // 
             // dataGridView1
@@ -222,11 +253,10 @@
             // groupBox2
             // 
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.Noti);
+            this.groupBox2.Controls.Add(this.upP);
             this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.pictureBox3);
-            this.groupBox2.Controls.Add(this.Noti);
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.UP);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox2.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.groupBox2.Location = new System.Drawing.Point(39, 439);
@@ -235,6 +265,44 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // Noti
+            // 
+            this.Noti.ActiveLinkColor = System.Drawing.Color.White;
+            this.Noti.AutoSize = true;
+            this.Noti.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Noti.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Noti.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Noti.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.Noti.LinkColor = System.Drawing.Color.Coral;
+            this.Noti.Location = new System.Drawing.Point(692, 163);
+            this.Noti.Name = "Noti";
+            this.Noti.Padding = new System.Windows.Forms.Padding(2);
+            this.Noti.Size = new System.Drawing.Size(102, 28);
+            this.Noti.TabIndex = 17;
+            this.Noti.TabStop = true;
+            this.Noti.Text = "Notifications";
+            this.Noti.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.Noti.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Noti_LinkClicked);
+            // 
+            // upP
+            // 
+            this.upP.ActiveLinkColor = System.Drawing.Color.White;
+            this.upP.AutoSize = true;
+            this.upP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.upP.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.upP.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.upP.LinkColor = System.Drawing.Color.Coral;
+            this.upP.Location = new System.Drawing.Point(386, 163);
+            this.upP.Name = "upP";
+            this.upP.Padding = new System.Windows.Forms.Padding(2);
+            this.upP.Size = new System.Drawing.Size(112, 28);
+            this.upP.TabIndex = 16;
+            this.upP.TabStop = true;
+            this.upP.Text = "Update Profile";
+            this.upP.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.upP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.upP_LinkClicked);
             // 
             // pictureBox4
             // 
@@ -258,49 +326,10 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // Noti
-            // 
-            this.Noti.AutoSize = true;
-            this.Noti.Location = new System.Drawing.Point(711, 168);
-            this.Noti.Name = "Noti";
-            this.Noti.Size = new System.Drawing.Size(60, 13);
-            this.Noti.TabIndex = 5;
-            this.Noti.TabStop = true;
-            this.Noti.Text = "Notification";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(644, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(196, 136);
-            this.button6.TabIndex = 4;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // UP
-            // 
-            this.UP.AutoSize = true;
-            this.UP.Location = new System.Drawing.Point(399, 168);
-            this.UP.Name = "UP";
-            this.UP.Size = new System.Drawing.Size(74, 13);
-            this.UP.TabIndex = 3;
-            this.UP.TabStop = true;
-            this.UP.Text = "Update Profile";
-            this.UP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.UP_LinkClicked);
-            // 
-            // searchText
-            // 
-            this.searchText.BackColor = System.Drawing.Color.Transparent;
-            this.searchText.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchText.Location = new System.Drawing.Point(533, 38);
-            this.searchText.Name = "searchText";
-            this.searchText.Size = new System.Drawing.Size(277, 30);
-            this.searchText.TabIndex = 12;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(836, 38);
+            this.button1.Location = new System.Drawing.Point(864, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 13;
@@ -311,13 +340,22 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Minion Pro SmBd", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1000, 389);
+            this.button2.Location = new System.Drawing.Point(1018, 389);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 30);
             this.button2.TabIndex = 14;
             this.button2.Text = "View Details";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // searchText
+            // 
+            this.searchText.Font = new System.Drawing.Font("Minion Pro Med", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchText.Location = new System.Drawing.Point(662, 22);
+            this.searchText.Name = "searchText";
+            this.searchText.Size = new System.Drawing.Size(168, 27);
+            this.searchText.TabIndex = 15;
+            this.searchText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // MemberPage
             // 
@@ -326,10 +364,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.searchText);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.searchText);
             this.Controls.Add(this.userName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.title);
@@ -362,23 +400,22 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel userName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel BP;
-        private System.Windows.Forms.LinkLabel BL;
-        private System.Windows.Forms.LinkLabel GS;
         private System.Windows.Forms.LinkLabel BJ;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.LinkLabel Noti;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.LinkLabel UP;
         private System.Windows.Forms.PictureBox pbj;
         private System.Windows.Forms.PictureBox pgs;
         private System.Windows.Forms.PictureBox pbl;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private CustomTextBox searchText;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox searchText;
+        private System.Windows.Forms.LinkLabel gs;
+        private System.Windows.Forms.LinkLabel bookL;
+        private System.Windows.Forms.LinkLabel bookP;
+        private System.Windows.Forms.LinkLabel upP;
+        private System.Windows.Forms.LinkLabel Noti;
     }
 }
