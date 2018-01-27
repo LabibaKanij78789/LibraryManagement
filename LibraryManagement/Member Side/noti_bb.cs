@@ -297,7 +297,7 @@ namespace LibraryManagement
                             }
                         }
 
-                        Label av = new Label();
+                        //Label av = new Label();
                         if (!avail)
                         {
                             label1.Text += " but unfortunately there is no book available.";

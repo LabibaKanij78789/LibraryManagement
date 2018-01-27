@@ -125,6 +125,7 @@ namespace LibraryManagement
 
         private void BJ_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            MessageBox.Show(userId);
             book_journal ob = new book_journal("labiba", userId);
             this.Hide();
             ob.Show();
@@ -147,15 +148,15 @@ namespace LibraryManagement
             try
             {
                 result = instance.selectSearch(q, columns1);
-
-                foreach (List<string> s in result)
-                {
-                    foreach (string r in s)
-                    {
-                        userId = r;
-                    }
-                }
-
+                userId = result[0][0];
+                //foreach (List<string> s in result)
+                //{
+                //    foreach (string r in s)
+                //    {
+                //        userId = r;
+                //    }
+                //}
+                MessageBox.Show(userId);
                 string query = "select reqPending from user where id = '" + userId + "'";
                 result = instance.selectSearch(query, new[] { "reqPending" });
                 int.TryParse(result[0][0], out n);
@@ -247,7 +248,7 @@ namespace LibraryManagement
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new noti_bb(null, n, name, "noti", userId);
+            new noti_bb(null, n, name, "noti", userId).Show();
 
         }
 
@@ -371,7 +372,7 @@ namespace LibraryManagement
         private void Noti_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
-            new noti_bb(null, n, name, "noti", userId);
+            new noti_bb(null, n, name, "noti", userId).Show();
         }
 
         private void bookP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -73,10 +73,10 @@
             // 
             // searchInput
             // 
-            this.searchInput.Font = new System.Drawing.Font("Minion Pro Med", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchInput.Location = new System.Drawing.Point(897, 43);
             this.searchInput.Name = "searchInput";
-            this.searchInput.Size = new System.Drawing.Size(168, 27);
+            this.searchInput.Size = new System.Drawing.Size(168, 26);
             this.searchInput.TabIndex = 16;
             // 
             // search
@@ -84,14 +84,14 @@
             this.search.ActiveLinkColor = System.Drawing.Color.White;
             this.search.AutoSize = true;
             this.search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.search.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.search.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.search.LinkColor = System.Drawing.Color.Coral;
             this.search.Location = new System.Drawing.Point(1107, 42);
             this.search.Name = "search";
             this.search.Padding = new System.Windows.Forms.Padding(2);
-            this.search.Size = new System.Drawing.Size(60, 28);
+            this.search.Size = new System.Drawing.Size(72, 26);
             this.search.TabIndex = 17;
             this.search.TabStop = true;
             this.search.Text = "Search";
@@ -104,14 +104,14 @@
             this.buy.AutoSize = true;
             this.buy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.buy.Cursor = System.Windows.Forms.Cursors.UpArrow;
-            this.buy.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buy.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.buy.LinkColor = System.Drawing.Color.Coral;
             this.buy.Location = new System.Drawing.Point(833, 628);
             this.buy.Name = "buy";
             this.buy.Padding = new System.Windows.Forms.Padding(2);
-            this.buy.Size = new System.Drawing.Size(42, 28);
+            this.buy.Size = new System.Drawing.Size(45, 26);
             this.buy.TabIndex = 18;
             this.buy.TabStop = true;
             this.buy.Text = "Buy";
@@ -123,14 +123,14 @@
             this.borrow.ActiveLinkColor = System.Drawing.Color.White;
             this.borrow.AutoSize = true;
             this.borrow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.borrow.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borrow.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.borrow.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.borrow.LinkColor = System.Drawing.Color.Coral;
             this.borrow.Location = new System.Drawing.Point(948, 628);
             this.borrow.Name = "borrow";
             this.borrow.Padding = new System.Windows.Forms.Padding(2);
-            this.borrow.Size = new System.Drawing.Size(65, 28);
+            this.borrow.Size = new System.Drawing.Size(71, 26);
             this.borrow.TabIndex = 19;
             this.borrow.TabStop = true;
             this.borrow.Text = "Borrow";

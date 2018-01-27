@@ -29,7 +29,7 @@ namespace LibraryManagement
             server = "localhost";
             database = "the_athenaeum";
             uid = "root";
-            password = " ";
+            password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -376,9 +376,9 @@ namespace LibraryManagement
         //Count statement
         public int Count(string tableName, string condition)
         {
-            string query = "SELECT Count(*) FROM " + tableName + " where ";
+            string query = "SELECT Count(*) FROM " + tableName + " where "+condition;
             int Count = -1;
-
+            MessageBox.Show(query);
             //Open Connection
             if (this.OpenConnection() == true)
             {
