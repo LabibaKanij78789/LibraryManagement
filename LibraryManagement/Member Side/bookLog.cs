@@ -17,110 +17,85 @@ namespace LibraryManagement
         private string blName;
         string user_id;
         bool creatLog;
+        string bl_id;
         DBConnect db = new DBConnect();
         string name;
-        string status;
+        //string status;
         string bk;
         string book_id;
-        string bl_id;
-
+        int b;
+        List<string> bookame = new List<string>();
         List<List<string>> result = new List<List<string>>();
         List<List<string>> result2 = new List<List<string>>();
         string page;
-        public bookLog(string uName, string book, string getStatus, Boolean bl, string p)
+        string getBook, getStatus;
+        public bookLog(string uName, string userId, Boolean bl)
         {
             InitializeComponent();
             this.dataGridView1.Hide();
-            this.add.Hide();
+            this.search.Hide();
             name = uName;
-            status = getStatus;
+            //status = getStatus;
             creatLog = bl;
-            page = p;
-            bk = book;
+            //page = p;
+            user_id = userId;
+            //bk = book;
+            label2.Hide();
             
-
-            try
-            {
+            panel1.Hide();
+            comboBox1.Hide();
+            
+            comboBox2.Hide();
+            panel1.BackColor = Color.Transparent;
+            
+            
                 if (creatLog)
                 {
-                    if (page == "p")
-                    {
-                        string[] colBook = new[] { "id" };
-                        string qb = "select id from books where name = '" + bk + "'";
-                        string[] colBooklog = new[] { "id" };
-                        string qbl = "select book_log.id from book_log inner join user on book_log.u_id = user.id where user.name  = '" + name + "'";
-
-                        result = db.selectSearch(qb, colBook);
-
-                        result2 = db.selectSearch(qbl, colBooklog);
-
-                        foreach (List<string> s in result)
-                        {
-                            foreach (string r in s)
-                            {
-                                book_id = r;
-                            }
-                        }
-                        foreach (List<string> s in result2)
-                        {
-                            foreach (string r in s)
-                            {
-                                bl_id = r;
-                            }
-                        }
-                        string[] col = new[] { "b_id", "bl_id", "status" };
-                        string[] val = new[] { book_id, bl_id, status };
-
-                        MessageBox.Show(val[0]);
-                        MessageBox.Show(val[1]);
-                        MessageBox.Show(val[2]);
-
-                        db.Insert("contains", col, val);
-                    }
-
                     button1.Hide();
                     panel1.Hide();
                     label1.Hide();
-                    add.Show();
+                    search.Show();
                     dataGridView1.Show();
-
-
                 }
-
                 else
                 {
-                    this.dataGridView1.Hide();
-                    this.add.Hide();
+                    button1.Show();
+                    panel1.Show();
+                    label1.Show();
+                    search.Hide();
+                    dataGridView1.Hide();
                 }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            
+            
+
         }
 
         private void bookLog_Load(object sender, EventArgs e)
         {
+            userName.Text += name;
+            string query = "select name from books";
+            
+            result = db.selectSearch(query, new[] {"name"});
+            string[] dataBook = new string[result.Count];
+            //DataTable tableBuy = new DataTable();
+            for (int i = 0; i < result.Count; i++)
+            {
+                dataBook[i] = result[i][0];
+                bookame[i] = result[i][0];
 
-
+            }
+            comboBox1.DataSource = dataBook;
+            
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select id from user where Name = '" + name+"'";
-            string[] columns1 = new[] { "id" };
+            
 
             try
             {
-                result = db.selectSearch(q, columns1);
-
-                foreach (List<string> s in result)
-                {
-                    foreach (string r in s)
-                    {
-                        user_id = r;
-                    }
-                }
+                
                 //blName = label1.Text.ToString();
                 string[] columns2 = new[] { "u_id", "Name" };
                 string[] booklog = new[] { user_id, ct.Text.ToString() };
@@ -140,8 +115,9 @@ namespace LibraryManagement
             button1.Hide();
             panel1.Hide();
             label1.Hide();
+            search.Show();
             //dataGridView1.Show();
-            add.Show();
+            //add.Show();
             dataGridView1.Show();
         }
 
@@ -152,10 +128,7 @@ namespace LibraryManagement
 
         private void add_Click(object sender, EventArgs e)
         {
-            creatLog = true;
-            Search_book sb = new Search_book(name);
-            this.Hide();
-            sb.Show();
+           
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -168,5 +141,92 @@ namespace LibraryManagement
             this.Hide();
             new MemberPage("labiba").Show();
         }
+
+        private void search_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            creatLog = true;
+            panel1.Show();
+            label2.Show();
+            comboBox1.Show();
+            comboBox2.Show();
+            //Search_book sb = new Search_book(name);
+            //this.Hide();
+            //sb.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getBook = comboBox1.SelectedItem.ToString();
+            //MessageBox.Show(getBook);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getStatus = comboBox1.SelectedItem.ToString();
+            //MessageBox.Show(getBook);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if (creatLog)
+                {
+                    string[] colBook = new[] { "id" };
+                    string qb = "select id from books where name = '" +getBook + "'";
+                    string[] colBooklog = new[] { "book_log.id" };
+                    string qbl = "select book_log.id from book_log inner join user on book_log.u_id = user.id where user.name  = '" +
+                        name + "' and book_log.name = '" + ct.Text.ToString() + "'";
+                    result = db.selectSearch(qb, colBook);
+                    result2 = db.selectSearch(qbl, colBooklog);
+                    book_id = result[0][0];
+                    bl_id = result2[0][0];
+                    string[] col = new[] { "b_id", "bl_id", "status" };
+                    string[] val = new[] {book_id, bl_id, getStatus };
+                    db.Insert("contains", col, val);
+                    
+
+                    
+
+
+                }
+
+                else
+                {
+                    this.dataGridView1.Hide();
+                    this.search.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            string item = comboBox1.Text;
+            item = item.ToLower();
+            comboBox1.Items.Clear();
+            string[] bookName = new string[bookame.Count];
+            for (int i = 0; i < bookame.Count; i++)
+            {
+                bookName[i] = bookame[i];
+            }
+            List<string> list = new List<string>();
+            for (int i = 0; i < bookName.Length; i++)
+            {
+                if (bookName[i].ToLower().Contains(item))
+                    list.Add(bookName[i]);
+            }
+            if (item != String.Empty)
+                foreach (string str in list)
+                    comboBox1.Items.Add(str);
+            else
+                comboBox1.Items.AddRange(bookName.ToArray());
+            comboBox1.SelectionStart = item.Length;
+            comboBox1.DroppedDown = true;
+        }
     }
+    
 }

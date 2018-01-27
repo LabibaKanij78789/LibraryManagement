@@ -81,6 +81,7 @@
             this.userName.TabStop = true;
             this.userName.Text = "Hi, ";
             this.userName.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.userName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.userName_LinkClicked);
             // 
             // groupBox1
             // 

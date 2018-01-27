@@ -37,6 +37,7 @@
             this.buy = new System.Windows.Forms.LinkLabel();
             this.borrow = new System.Windows.Forms.LinkLabel();
             this.bookPanel = new System.Windows.Forms.Panel();
+            this.title = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bookData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -146,12 +147,25 @@
             this.bookPanel.Size = new System.Drawing.Size(288, 409);
             this.bookPanel.TabIndex = 20;
             // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Cursor = System.Windows.Forms.Cursors.No;
+            this.title.Font = new System.Drawing.Font("Niagara Solid", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.title.Location = new System.Drawing.Point(60, 28);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(352, 85);
+            this.title.TabIndex = 21;
+            this.title.Text = "The Athenaeuam";
+            // 
             // book_journal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.bookPanel);
             this.Controls.Add(this.borrow);
             this.Controls.Add(this.buy);
@@ -179,5 +193,6 @@
         private System.Windows.Forms.LinkLabel buy;
         private System.Windows.Forms.LinkLabel borrow;
         private System.Windows.Forms.Panel bookPanel;
+        private System.Windows.Forms.Label title;
     }
 }

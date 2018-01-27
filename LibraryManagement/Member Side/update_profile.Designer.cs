@@ -36,12 +36,14 @@
             this.memBox = new System.Windows.Forms.TextBox();
             this.passBox = new System.Windows.Forms.TextBox();
             this.contactBox = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.title = new System.Windows.Forms.Label();
+            this.userName = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -143,15 +145,6 @@
             this.contactBox.TabIndex = 11;
             this.contactBox.TextChanged += new System.EventHandler(this.contactBox_TextChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(716, 156);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(273, 341);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // button1
             // 
             this.button1.BackgroundImage = global::LibraryManagement.Properties.Resources.updateBtn;
@@ -190,12 +183,49 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(716, 156);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(273, 341);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Cursor = System.Windows.Forms.Cursors.No;
+            this.title.Font = new System.Drawing.Font("Niagara Solid", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.title.Location = new System.Drawing.Point(79, 26);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(352, 85);
+            this.title.TabIndex = 16;
+            this.title.Text = "The Athenaeuam";
+            // 
+            // userName
+            // 
+            this.userName.AutoSize = true;
+            this.userName.Font = new System.Drawing.Font("Adobe Gothic Std B", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.userName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.userName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.userName.Location = new System.Drawing.Point(1075, 26);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(49, 30);
+            this.userName.TabIndex = 17;
+            this.userName.TabStop = true;
+            this.userName.Text = "Hi, ";
+            this.userName.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            // 
             // update_profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.userName);
+            this.Controls.Add(this.title);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
@@ -211,8 +241,8 @@
             //this.Name = "update_profile";
             this.Text = "update_profile";
             this.Load += new System.EventHandler(this.update_profile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,9 +257,11 @@
         private System.Windows.Forms.TextBox memBox;
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.TextBox contactBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.LinkLabel userName;
     }
 }

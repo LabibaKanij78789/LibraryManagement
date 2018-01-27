@@ -182,6 +182,11 @@ namespace LibraryManagement
             }
         }
 
+        private void userName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -245,6 +250,7 @@ namespace LibraryManagement
         {
             try
             {
+                userName.Text += name;
                 if (p == "bj")
                 {
                     label2.Text = "Request Pending";

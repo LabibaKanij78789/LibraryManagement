@@ -34,10 +34,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bookP = new System.Windows.Forms.LinkLabel();
             this.bookL = new System.Windows.Forms.LinkLabel();
-            this.gs = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbl = new System.Windows.Forms.PictureBox();
-            this.pgs = new System.Windows.Forms.PictureBox();
             this.pbj = new System.Windows.Forms.PictureBox();
             this.BJ = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -53,7 +51,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pgs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -105,10 +102,8 @@
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.bookP);
             this.groupBox1.Controls.Add(this.bookL);
-            this.groupBox1.Controls.Add(this.gs);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pbl);
-            this.groupBox1.Controls.Add(this.pgs);
             this.groupBox1.Controls.Add(this.pbj);
             this.groupBox1.Controls.Add(this.BJ);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -130,7 +125,7 @@
             this.bookP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bookP.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.bookP.LinkColor = System.Drawing.Color.Coral;
-            this.bookP.Location = new System.Drawing.Point(990, 163);
+            this.bookP.Location = new System.Drawing.Point(944, 163);
             this.bookP.Name = "bookP";
             this.bookP.Padding = new System.Windows.Forms.Padding(2);
             this.bookP.Size = new System.Drawing.Size(123, 28);
@@ -149,7 +144,7 @@
             this.bookL.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bookL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.bookL.LinkColor = System.Drawing.Color.Coral;
-            this.bookL.Location = new System.Drawing.Point(702, 163);
+            this.bookL.Location = new System.Drawing.Point(578, 163);
             this.bookL.Name = "bookL";
             this.bookL.Padding = new System.Windows.Forms.Padding(2);
             this.bookL.Size = new System.Drawing.Size(79, 28);
@@ -159,29 +154,10 @@
             this.bookL.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.bookL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.bookL_LinkClicked);
             // 
-            // gs
-            // 
-            this.gs.ActiveLinkColor = System.Drawing.Color.White;
-            this.gs.AutoSize = true;
-            this.gs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gs.Font = new System.Drawing.Font("Minion Pro SmBd", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gs.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.gs.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.gs.LinkColor = System.Drawing.Color.Coral;
-            this.gs.Location = new System.Drawing.Point(375, 163);
-            this.gs.Name = "gs";
-            this.gs.Padding = new System.Windows.Forms.Padding(2);
-            this.gs.Size = new System.Drawing.Size(123, 28);
-            this.gs.TabIndex = 13;
-            this.gs.TabStop = true;
-            this.gs.Text = "Get Suggestions";
-            this.gs.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.gs.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LibraryManagement.Properties.Resources.download;
-            this.pictureBox2.Location = new System.Drawing.Point(979, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(933, 19);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(134, 136);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -192,7 +168,7 @@
             // pbl
             // 
             this.pbl.Image = global::LibraryManagement.Properties.Resources.booklog;
-            this.pbl.Location = new System.Drawing.Point(673, 19);
+            this.pbl.Location = new System.Drawing.Point(546, 16);
             this.pbl.Name = "pbl";
             this.pbl.Size = new System.Drawing.Size(134, 136);
             this.pbl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -200,20 +176,10 @@
             this.pbl.TabStop = false;
             this.pbl.Click += new System.EventHandler(this.pbl_Click);
             // 
-            // pgs
-            // 
-            this.pgs.Image = global::LibraryManagement.Properties.Resources.suggestion;
-            this.pgs.Location = new System.Drawing.Point(375, 19);
-            this.pgs.Name = "pgs";
-            this.pgs.Size = new System.Drawing.Size(134, 136);
-            this.pgs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pgs.TabIndex = 9;
-            this.pgs.TabStop = false;
-            // 
             // pbj
             // 
             this.pbj.Image = global::LibraryManagement.Properties.Resources.pile_of_books;
-            this.pbj.Location = new System.Drawing.Point(64, 19);
+            this.pbj.Location = new System.Drawing.Point(147, 16);
             this.pbj.Name = "pbj";
             this.pbj.Size = new System.Drawing.Size(134, 136);
             this.pbj.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -230,7 +196,7 @@
             this.BJ.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BJ.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.BJ.LinkColor = System.Drawing.Color.Coral;
-            this.BJ.Location = new System.Drawing.Point(57, 163);
+            this.BJ.Location = new System.Drawing.Point(147, 163);
             this.BJ.Name = "BJ";
             this.BJ.Padding = new System.Windows.Forms.Padding(2);
             this.BJ.Size = new System.Drawing.Size(144, 28);
@@ -383,7 +349,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pgs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -403,7 +368,6 @@
         private System.Windows.Forms.LinkLabel BJ;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pbj;
-        private System.Windows.Forms.PictureBox pgs;
         private System.Windows.Forms.PictureBox pbl;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -412,7 +376,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox searchText;
-        private System.Windows.Forms.LinkLabel gs;
         private System.Windows.Forms.LinkLabel bookL;
         private System.Windows.Forms.LinkLabel bookP;
         private System.Windows.Forms.LinkLabel upP;

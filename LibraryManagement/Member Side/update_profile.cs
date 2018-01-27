@@ -45,6 +45,7 @@ namespace LibraryManagement
 
         private void update_profile_Load(object sender, EventArgs e)
         {
+            userName.Text += name;
             string q1 = "SELECT usr.Contact,usr.password,mem.Type from user as usr " +
                         "inner join membership as mem on mem.ID = usr.M_id " +
                         "where usr.Name = '" + name + "'";

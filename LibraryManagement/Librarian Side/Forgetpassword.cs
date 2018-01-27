@@ -41,19 +41,14 @@ namespace LibraryManagement
                 answer = txtanswer.Text;
                 //con.Open();
                 string[] col = new[] { "id", "name", "security", "time_id" };
-                String query1 = "SELECT id, name,security, time_id FROM Librarian WHERE username='" + username + "';";
+                String query1 = "SELECT id, name, security, time_id FROM Librarian WHERE username='" + username + "';";
                 //SqlCommand cmd1 = new SqlCommand(query1, con);
                 List<List<string>> result = new List<List<string>>();
-                int i;
                 result = db.selectSearch(query1, col);
-                foreach(List<string> s in result)
-                {
-                    i = 0;
-                    foreach(string r in s)
+                for(int i = 0; i<col.Length; i++)
                     {
-                        col[i] = r;
+                        col[i] = result[0][i];
                     }
-                }
                 id = col[0];
                 name = col[1];
                 security = col[2];
@@ -86,41 +81,12 @@ namespace LibraryManagement
         private void button2_Click(object sender, EventArgs e)
         {
             try {
-                //String libid = null, libtimeid = null;
-
-                //con.Open();
-                //String query1 = "SELECT timeid FROM Librarian WHERE libname='" + txtlibname.Text + "'AND username='" + txtusername.Text + "'; ";
-                //SqlCommand cmd = new SqlCommand(query1, con);
-                //SqlDataReader dr1 = cmd.ExecuteReader();
-                //if (dr1.Read())
-                //{
-                //    libid = (dr1["libid"].ToString());
-                //    libtimeid = (dr1["libtimeid"].ToString());
-                //}
-                //dr1.Close();
-
                 String query2 = "SELECT password FROM Librarian WHERE answer = '" + txtanswer.Text + "' AND id='" + id + "' AND time_id='" + time_id + "';";
-                //SqlCommand cmd2 = new SqlCommand(query2, con);
-                //SqlDataReader dr2 = cmd2.ExecuteReader();
-                //if (dr2.Read())
-                //{
-                //    txtpassword.Text = (dr2["userpassword"].ToString());
-                //}
-                //dr2.Close();
-                //con.Close();
                 string[] col = new[] { "password" };
                 List<List<string>> result = new List<List<string>>();
                 result = db.selectSearch(query2, col);
-                int i;
-                foreach (List<string> s in result)
-                {
-                    i = 0;
-                    foreach (string r in s)
-                    {
-                        col[i] = r;
-                    }
-                }
-                pass = col[0];
+                
+                pass = result[0][0];
                 txtpassword.Text = pass;
             }
             catch (Exception ex)

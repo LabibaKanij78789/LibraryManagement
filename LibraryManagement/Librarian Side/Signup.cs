@@ -88,25 +88,21 @@ namespace LibraryManagement
             try
             {
 
-                String id1, name, contract, timeid1, username, password, security, answer;
+                String id1, name, contact, timeid1, username, password, security, answer;
                 id1 = txtlibid.Text;
                 name = txtlibname.Text;
-                contract = txtlibcontact.Text;
+                contact = txtlibcontact.Text;
                 timeid1 = txtlibtimeid.Text;
                 username = txtusername.Text;
                 password = txtuserpassword.Text;
                 security = comboboxsecurity.Text;
                 answer = txtanswer.Text;
-                int id, timeid;
-                string[] col = new[] { "name", "contract", "time_id", "username", "password", "security", "answer" };
-                string[] val = new[] { name, contract, timeid1, username, password, security, answer };
-                id = Convert.ToInt32(id1);
-                timeid = Convert.ToInt32(timeid1);
-                if (id1.Length != 0 && name.Length != 0 && contract.Length != 0 && timeid1.Length != 0 && username.Length != 0 && password.Length != 0 && security.Length != 0 && answer.Length != 0)
+                //int id, timeid;
+                string[] col = new[] { "name", "password", "contact", "time_id", "username",  "security", "answer" };
+                string[] val = new[] { name, password, contact, timeid1, username,  security, answer };
+                if (id1.Length != 0 && name.Length != 0 && contact.Length != 0 && timeid1.Length != 0 && username.Length != 0 && password.Length != 0 && security.Length != 0 && answer.Length != 0)
                 {
-                    //con.Open();
-                    String query = "INSERT INTO Librarian (name, contract, time_id,username, password,security,answer) Values('" + name + "','" + contract + "', '" + timeid + "','" + username + "','" + password + "','" + security + "','" + answer + "');";
-                    //SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+                    
                     db.Insert("librarian", col, val);
                     //SDA.SelectCommand.ExecuteNonQuery();
                     MessageBox.Show("Welcome Librarian");

@@ -30,7 +30,7 @@ namespace LibraryManagement
             userName.Text = userName.Text + uName;
             pictureBox1.BackColor = Color.Transparent;
             pbj.BackColor = Color.Transparent;
-            pgs.BackColor = Color.Transparent;
+            //pgs.BackColor = Color.Transparent;
             groupBox1.BackColor = Color.Transparent;
             groupBox2.BackColor = Color.Transparent;
             pbl.BackColor = Color.Transparent;
@@ -192,21 +192,15 @@ namespace LibraryManagement
         {
             try
             {
-                string q = "select bookLog from book_log inner join user where book_log.u_id = user.id";
+                string q = "select bookLog from user where id = '"+userId+"'";
                 string[] col = new[] { "bookLog" };
 
                 result = instance.selectSearch(q, col);
-                foreach (List<string> s in result)
-                {
-                    foreach (string r in s)
-                    {
-                        bl = r;
-                    }
-                }
+                bl = result[0][0];
 
 
                 Boolean bookLog = Convert.ToBoolean(bl);
-                bookLog blg = new bookLog(name, null, null, bookLog, "m");
+                bookLog blg = new bookLog(name, userId, bookLog);
                 this.Hide();
                 blg.Show();
             }
@@ -345,21 +339,15 @@ namespace LibraryManagement
         {
             try
             {
-                string q = "select bookLog from book_log inner join user where book_log.u_id = user.id where id = " +
+                string q = "select bookLog from user where id = " +
                            userId;
                 string[] col = new[] { "bookLog" };
 
                 result = instance.selectSearch(q, col);
-                foreach (List<string> s in result)
-                {
-                    foreach (string r in s)
-                    {
-                        bl = r;
-                    }
-                }
+                bl = result[0][0];
 
                 Boolean bookLog = Convert.ToBoolean(bl);
-                bookLog blg = new bookLog(name, null, null, bookLog, "m");
+                bookLog blg = new bookLog(name,userId, bookLog);
                 this.Hide();
                 blg.Show();
             }

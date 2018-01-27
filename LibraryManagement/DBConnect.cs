@@ -397,8 +397,34 @@ namespace LibraryManagement
             {
                 return Count;
             }
+
         }
 
+        public int CountCon(string tableName, string condition)
+        {
+            string query = "SELECT Count(*) FROM " + tableName + condition;
+            int Count = -1;
+            MessageBox.Show(query);
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //ExecuteScalar will return one value
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+
+                //close Connection
+                this.CloseConnection();
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
+
+        }
         //Backup
         public void Backup()
         {

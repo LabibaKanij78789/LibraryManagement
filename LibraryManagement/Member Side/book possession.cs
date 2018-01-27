@@ -50,18 +50,18 @@ namespace LibraryManagement
             }
             booksBorrowed.DataSource = table1;
 
-            result2 = db.selectSearch(query1, columns1);
+            result2 = db.selectSearch(query2, columns1);
 
             DataTable tabl2 = new DataTable();
             //for (int i = 0; i < 3; i++)
             //{
             //    table.Columns.Add(columns1[i]);
             //}
-            foreach (var array in result1)
+            foreach (var array in result2)
             {
                 tabl2.Rows.Add(array.ToArray());
             }
-            booksBorrowed.DataSource = tabl2;
+            booksBought.DataSource = tabl2;
 
         }
 
