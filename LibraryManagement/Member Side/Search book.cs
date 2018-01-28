@@ -113,7 +113,7 @@ namespace LibraryManagement
             
             //getStatus = select.ToString();
             getStatus = comboBox1.SelectedItem.ToString();
-            MessageBox.Show(getStatus);
+            //MessageBox.Show(getStatus);
         }
 
         private void Search_book_Load(object sender, EventArgs e)

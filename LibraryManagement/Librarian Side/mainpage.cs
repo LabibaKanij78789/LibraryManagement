@@ -84,5 +84,10 @@ namespace LibraryManagement
             this.Hide();
             ob.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

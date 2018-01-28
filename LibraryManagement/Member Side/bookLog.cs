@@ -71,9 +71,9 @@ namespace LibraryManagement
                         string[] col = new[] { "b_id", "bl_id", "status" };
                         string[] val = new[] { book_id, bl_id, status };
 
-                        MessageBox.Show(val[0]);
-                        MessageBox.Show(val[1]);
-                        MessageBox.Show(val[2]);
+                        //MessageBox.Show(val[0]);
+                        //MessageBox.Show(val[1]);
+                        //MessageBox.Show(val[2]);
 
                         db.Insert("contains", col, val);
                     }
