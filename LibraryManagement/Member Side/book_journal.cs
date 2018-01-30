@@ -91,7 +91,7 @@ namespace LibraryManagement
                 {
                     selectedBook = bookData.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 }
-                MessageBox.Show(selectedBook);
+                //MessageBox.Show(selectedBook);
                 lb[l] = new Label();
                 lb[l].Text = selectedBook;
                 lb[l].Font = new Font("Minion pro", 12, FontStyle.Regular);
@@ -177,7 +177,7 @@ namespace LibraryManagement
                 
                 int countGrant = db.Count("grants", conQ);
                 countGrant += 1;
-                MessageBox.Show(countGrant.ToString());
+                //MessageBox.Show(countGrant.ToString());
                 string gNo = Convert.ToString(countGrant);
                 Random rnd = new Random();
                 l_id = Convert.ToString(rnd.Next(1, 6));
@@ -275,11 +275,11 @@ namespace LibraryManagement
                 int countGrant = db.Count("grants", conQ);
                 countGrant += 1;
                 string gNo = Convert.ToString(countGrant);
-                MessageBox.Show(gNo);
+                //MessageBox.Show(gNo);
                 Random rnd = new Random();
                 l_id = Convert.ToString(rnd.Next(1, 6));
                 g_id = l_id + u_id + countGrant;
-                MessageBox.Show(g_id);
+                //MessageBox.Show(g_id);
                 l_id = "1";
                 string[] col = new[] { "ID", "l_id", "u_id", "taskDoneOrNot", "total", "Type", "new" };
                 string[] val = new[] { g_id, l_id, u_id, "0", "0", "w", "1" };

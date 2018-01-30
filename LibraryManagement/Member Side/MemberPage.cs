@@ -125,7 +125,7 @@ namespace LibraryManagement
 
         private void BJ_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(userId);
+            //MessageBox.Show(userId);
             book_journal ob = new book_journal("labiba", userId);
             this.Hide();
             ob.Show();
@@ -156,7 +156,7 @@ namespace LibraryManagement
                 //        userId = r;
                 //    }
                 //}
-                MessageBox.Show(userId);
+                //MessageBox.Show(userId);
                 string query = "select reqPending from user where id = '" + userId + "'";
                 result = instance.selectSearch(query, new[] { "reqPending" });
                 int.TryParse(result[0][0], out n);

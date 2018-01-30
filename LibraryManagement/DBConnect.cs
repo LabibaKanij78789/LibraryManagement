@@ -115,7 +115,7 @@ namespace LibraryManagement
 
             query += ")";
 
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
 
             //open connection
             if (this.OpenConnection() == true)
@@ -149,7 +149,7 @@ namespace LibraryManagement
                 }
             }
             query += condition;
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             //Open connection
             try {
                 //create mysql command
@@ -225,7 +225,7 @@ namespace LibraryManagement
                     //Create a data reader and Execute the command
                     MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                    MessageBox.Show(dataReader.HasRows.ToString());
+                    //MessageBox.Show(dataReader.HasRows.ToString());
 
                     if (dataReader.HasRows)
                     {
@@ -325,7 +325,7 @@ namespace LibraryManagement
         public List<List<string>> selectSearch(string query, string[] colStrings)
         {
             string q = query;
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             //Create a list to store the result
             List<List<string>> list = new List<List<string>>();
 
@@ -378,7 +378,7 @@ namespace LibraryManagement
         {
             string query = "SELECT Count(*) FROM " + tableName + " where "+condition;
             int Count = -1;
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             //Open Connection
             if (this.OpenConnection() == true)
             {

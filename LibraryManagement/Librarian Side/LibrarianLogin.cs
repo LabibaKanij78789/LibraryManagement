@@ -49,7 +49,7 @@ namespace LibraryManagement
                 //result = db.selectSearch
                 //DataTable dt = new DataTable();
                 //SDA.Fill(dt);
-                if (db.SelectAll("library", query))
+                if (db.SelectAll("librarian", query))
                 {
                     Progressbar ob = new Progressbar();
                     this.Hide();
@@ -63,8 +63,8 @@ namespace LibraryManagement
 
                // con.Close();
             }catch(Exception ex)
-            { 
-                
+            {
+                MessageBox.Show(ex.ToString());
             }
 
         }
@@ -81,6 +81,11 @@ namespace LibraryManagement
             Forgetpassword ob = new Forgetpassword();
             this.Hide();
             ob.Show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
