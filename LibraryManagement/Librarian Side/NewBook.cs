@@ -27,9 +27,9 @@ namespace LibraryManagement
         {
             try
             {
-                string query = "selct id from section where type = '" + sec.SelectedItem.ToString() + "'";
+                string query = "select s_id from section where s_type = '" + sec.SelectedItem.ToString() + "'";
                 results.Clear();
-                results = db.selectSearch(query, new[] {"id"});
+                results = db.selectSearch(query, new[] {"s_id"});
                 section = results[0][0];
             }
             catch (Exception exception)
@@ -44,9 +44,9 @@ namespace LibraryManagement
         {
             try
             {
-                string query = "selct id from publisher where name = '" + pub.SelectedItem.ToString() + "'";
+                string query = "select p_id from publisher where p_name = '" + pub.SelectedItem.ToString() + "'";
                 resultp.Clear();
-                resultp = db.selectSearch(query, new[] { "id" });
+                resultp = db.selectSearch(query, new[] { "p_id" });
                 publisher = resultp[0][0];
             }
             catch (Exception exception)
@@ -61,9 +61,9 @@ namespace LibraryManagement
         {
             try
             {
-                string query = "selct id from genre where type = '" + gen.SelectedItem.ToString() + "'";
+                string query = "select g_id from genre where g_type = '" + gen.SelectedItem.ToString() + "'";
                 resultg.Clear();
-                resultg = db.selectSearch(query, new[] { "id" });
+                resultg = db.selectSearch(query, new[] { "g_id" });
                 genre = resultg[0][0];
             }
             catch (Exception exception)
@@ -77,10 +77,10 @@ namespace LibraryManagement
         {
             try
             {
-                string query = "selct id from author where name = '" + auth.SelectedItem.ToString() + "'";
+                string query = "select a_id from author where a_name = '" + auth.SelectedItem.ToString() + "'";
                 resulta.Clear();
-                resulta = db.selectSearch(query, new[] { "id" });
-                publisher = resulta[0][0];
+                resulta = db.selectSearch(query, new[] { "a_id" });
+                author = resulta[0][0];
             }
             catch (Exception exception)
             {
@@ -93,8 +93,8 @@ namespace LibraryManagement
         {
             //publisher
 
-            string query = "select name, id from publisher";
-            resultp = db.selectSearch(query, new[] { "name", "id" });
+            string query = "select p_name, p_id from publisher";
+            resultp = db.selectSearch(query, new[] { "p_name", "p_id" });
             string[] pubData = new string[resultp.Count];
             //DataTable tableBuy = new DataTable();
             for (int i = 0; i < resultp.Count; i++)
@@ -107,8 +107,8 @@ namespace LibraryManagement
 
             // author
             //resulta.Clear();
-            query = "select name, id from author";
-            resulta = db.selectSearch(query, new[] { "name", "id" });
+            query = "select a_name, a_id from author";
+            resulta = db.selectSearch(query, new[] { "a_name", "a_id" });
             string[] authData = new string[resulta.Count];
             //DataTable tableBuy = new DataTable();
             for (int i = 0; i < resulta.Count; i++)
@@ -120,8 +120,8 @@ namespace LibraryManagement
             auth.DataSource = authData;
 
             //genre
-            query = "select type, id from genre";
-            results = db.selectSearch(query, new[] { "type", "id" });
+            query = "select g_type, g_id from genre";
+            resultg = db.selectSearch(query, new[] { "g_type", "g_id" });
             string[] genData = new string[resultg.Count];
             //DataTable tableBuy = new DataTable();
             for (int i = 0; i < resultg.Count; i++)
@@ -134,8 +134,8 @@ namespace LibraryManagement
 
             //section
 
-            query = "select type, id from genre";
-            results = db.selectSearch(query, new[] { "type", "id" });
+            query = "select s_type, s_id from section";
+            results = db.selectSearch(query, new[] { "s_type", "s_id" });
             string[] secData = new string[results.Count];
             //DataTable tableBuy = new DataTable();
             for (int i = 0; i < results.Count; i++)
@@ -226,7 +226,7 @@ namespace LibraryManagement
                 //publisher = txtpublisher.Text;
                 //section = txtsection.Text;
                 amount1 = txtamount.Text;
-                string[] col = new[] {"name", "pub_date", "g_id", "a_id", "p_id", "s_id", "price", "available"};
+                string[] col = new[] {"b_name", "pub_date", "g_id", "a_id", "p_id", "s_id", "price", "available"};
                 string[] val = new[] {name, edition1, genre, author, publisher, section, price1, amount1};
                 db.Insert("books", col, val);
                 

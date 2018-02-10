@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.title = new System.Windows.Forms.Label();
-            this.userName = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,8 +39,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,21 +64,6 @@
             this.title.Size = new System.Drawing.Size(352, 85);
             this.title.TabIndex = 2;
             this.title.Text = "The Athenaeuam";
-            // 
-            // userName
-            // 
-            this.userName.AutoSize = true;
-            this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.userName.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.userName.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.userName.Location = new System.Drawing.Point(1019, 41);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(52, 29);
-            this.userName.TabIndex = 6;
-            this.userName.TabStop = true;
-            this.userName.Text = "Hi, ";
-            this.userName.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.userName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.userName_LinkClicked);
             // 
             // groupBox1
             // 
@@ -142,8 +124,6 @@
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
@@ -207,28 +187,6 @@
             this.button1.Text = "Confirm";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label8.Location = new System.Drawing.Point(723, 329);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 29);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "label8";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label7.Location = new System.Drawing.Point(562, 329);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 29);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Total  :";
             // 
             // label6
             // 
@@ -310,7 +268,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.userName);
             this.Controls.Add(this.title);
             this.Name = "noti_bb";
             this.Text = "noti_bb";
@@ -330,7 +287,6 @@
         #endregion
 
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.LinkLabel userName;
         private System.Windows.Forms.GroupBox groupBox1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
@@ -347,8 +303,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -22,6 +22,7 @@ namespace LibraryManagement
         bool flag = false;
         string user_id;
         string searchString;
+        
         string query;
         List<string> myCollection = new List<string>();
         private int avail;
@@ -49,6 +50,7 @@ namespace LibraryManagement
             by = bookPanel.Location.Y;
             name = uName;
             u_id = userId;
+            title.BackColor = Color.Transparent;
         }
 
         private void searchInput_TextChanged(object sender, EventArgs e)
@@ -81,6 +83,21 @@ namespace LibraryManagement
         private void bookData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bookPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ret_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            db.Insert("notifications", new[] { "u_id", "n_type", "completed" }, new[] { u_id, "r", "0" });
+            query = "select gr_id from grants where u_id = '" + u_id + "'";
+            resultString.Clear();
+            resultString = db.selectSearch(query, new[] { "gr_id" });
+            string gid = resultString[0][0];
+            db.Update("borrows", new[] { "returned" }, new[] { "1" }, " where g_id = '" + gid + "'");
         }
 
         private void bookData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,39 +159,46 @@ namespace LibraryManagement
 
         private void search_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            searchString = searchInput.Text;
-            //db.OpenConnection();
-
-            string[] columns = new[] { "Book_title", "publication_date", "Author", "Genre", "Section", "Publication", "price" };
-            query = "Select books.name as Book_title, books.pub_date as publication_date, " +
-                    "author.name as Author, genre.type as Genre, section.type as Section, " +
-                    "publisher.name as Publication, books.price as price from books inner join author " +
-                    "on books.a_id = author.id inner join genre on books.g_id = genre.ID" +
-                    " inner join section on books.s_id = section.id inner join publisher " +
-                    "on books.p_id = publisher.id where books.name = '" + searchString + "' or " +
-                    "genre.type = '" + searchString + "' or author.name = '" + searchString + "' or " +
-                    "section.type = '" + searchString + "' or publisher.name = '" + searchString + "'";
-
-            resultString = db.selectSearch(query, columns);
-
-            DataTable table = new DataTable();
-            for (int i = 0; i < 7; i++)
+            try
             {
-                table.Columns.Add(columns[i]);
-            }
-            foreach (var array in resultString)
+                searchString = searchInput.Text;
+                //db.OpenConnection();
+
+                string[] columns = new[] { "Book_title", "publication_date", "Author", "Genre", "Section", "Publication", "price" };
+                query = "Select b_name as Book_title, pub_date as publication_date, " +
+                        "a_name as Author, g_type as Genre, s_type as Section, " +
+                        "p_name as Publication, price from books inner join author " +
+                        "on books.a_id = author.a_id inner join genre on books.g_id = genre.g_ID" +
+                        " inner join section on books.s_id = section.s_id inner join publisher " +
+                        "on books.p_id = publisher.p_id where b_name = '" + searchString + "' or " +
+                        "g_type = '" + searchString + "' or a_name = '" + searchString + "' or " +
+                        "s_type = '" + searchString + "' or p_name = '" + searchString + "'";
+
+                resultString = db.selectSearch(query, columns);
+
+                DataTable table = new DataTable();
+                for (int i = 0; i < 7; i++)
+                {
+                    table.Columns.Add(columns[i]);
+                }
+                foreach (var array in resultString)
+                {
+                    table.Rows.Add(array.ToArray());
+                }
+                bookData.DataSource = table;
+            }catch(Exception ex)
             {
-                table.Rows.Add(array.ToArray());
+                MessageBox.Show(ex.ToString());
             }
-            bookData.DataSource = table;
+            
         }
-
+        string today;
         private void buy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
                 string conQ = "U_id = '" + u_id + "'";
-                
+                db.Insert("notifications", new[] { "u_id", "n_type", "completed" }, new[] { u_id, "y", "0" });
                 int countGrant = db.Count("grants", conQ);
                 countGrant += 1;
                 //MessageBox.Show(countGrant.ToString());
@@ -183,16 +207,34 @@ namespace LibraryManagement
                 l_id = Convert.ToString(rnd.Next(1, 6));
                 g_id = l_id + u_id + countGrant;
                 l_id = "1";
-                string[] col = new[] {"ID","l_id", "u_id", "taskDoneOrNot", "total", "Type", "new"};
-                string[] val = new[] {g_id, l_id, u_id, "0", "0", "y", "1"};
+                string[] col = new[] {"gr_ID","l_id", "u_id", "taskDoneOrNot", "total", "gr_Type", "new"};
+                string[] val = new[] {g_id, l_id, u_id, "0", "0", "y", "0"};
                 db.Insert("grants", col, val);
-                string[] val2 = new[] {"", g_id, "0"};
-                string[] col2 = new[] {"b_id", "g_id", "avail"};
-                string[] colId = {"ID"};
+                string c;
+
+                today = DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss tt");
+                if (today[19] == 'P')
+                {
+                    c = today[11].ToString();
+                    int.TryParse(c, out int h0);
+                    c = today[12].ToString();
+                    int.TryParse(c, out int h1);
+                    int h = (h0 * 10 + 2) + 12;
+                    h0 = h / 10;
+                    h1 = h % 10;
+                    StringBuilder sb = new StringBuilder(today);
+                    sb[11] = Convert.ToChar(h0);
+                    sb[12] = Convert.ToChar(h1);
+                    today = sb.ToString();
+                }
+                today = today.Remove(19, 3);
+                string[] val2 = new[] {"", g_id, "0", today};
+                string[] col2 = new[] {"b_id", "g_id", "buy_avail", "sell_date"};
+                string[] colId = {"b_ID"};
 
                 foreach (string book in myCollection)
                 {
-                    query = "Select ID from books where name = '" + book + "'";
+                    query = "Select b_ID from books where b_name = '" + book + "'";
 
                     resultString = db.selectSearch(query, colId);
                     val2[0] = resultString[0][0];
@@ -206,74 +248,18 @@ namespace LibraryManagement
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
-            //string[] columns1 = new[] { "available" };
-            //query = "Select available from books where name = '" + selectedBook + "'";
-
-            //resultString = db.selectSearch(query, columns1);
-            //foreach (List<string> s in resultString)
-            //{
-            //    foreach (string r in s)
-            //    {
-            //        p = r;
-            //    }
-            //}
-
-            //avail = Convert.ToInt16(p);
-            //if (avail == 0)
-            //{
-
-            //    MessageBox.Show("sorry this book is not available!!!");
-            //}
-            //else
-            //{
-            //    string[] columns = new[] { "price" };
-            //    query = "Select price from books where name = '" + selectedBook + "'";
-
-            //    resultString = db.selectSearch(query, columns);
-            //    foreach (List<string> s in resultString)
-            //    {
-            //        foreach (string r in s)
-            //        {
-            //            p = r;
-            //        }
-            //    }
-
-
-
-            //    DialogResult dialogResult = MessageBox.Show("Are you sure you want to buy this book for " + p + " taka??",
-            //        selectedBook + "purchase", MessageBoxButtons.YesNo);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        //do something
-            //        DialogResult dr = MessageBox.Show(p + " taka is cut off from your mobile account.",
-            //            selectedBook + "purchase", MessageBoxButtons.OKCancel);
-            //        if (dr == DialogResult.OK)
-            //        {
-            //            MessageBox.Show("This book is booked for you. Hope to see you soon to get this! Thank you.");
-            //            avail--;
-            //            db.Update("books", columns1, new[] { avail.ToString() }, "where name = '" + selectedBook + "'");
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Hope you will have a nice book read!");
-            //        }
-            //    }
-            //    else if (dialogResult == DialogResult.No)
-            //    {
-            //        //do something else
-            //        MessageBox.Show("Hope you will have a nice book read!");
-            //    }
-            //}
+            }           
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
+                db.Insert("notifications", new[] { "u_id", "n_type", "completed" }, new[] { u_id, "w", "0" });
                 string conQ = "u_id = '" + u_id + "'";
                 int countGrant = db.Count("grants", conQ);
                 countGrant += 1;
+
                 string gNo = Convert.ToString(countGrant);
                 //MessageBox.Show(gNo);
                 Random rnd = new Random();
@@ -281,20 +267,51 @@ namespace LibraryManagement
                 g_id = l_id + u_id + countGrant;
                 //MessageBox.Show(g_id);
                 l_id = "1";
-                string[] col = new[] { "ID", "l_id", "u_id", "taskDoneOrNot", "total", "Type", "new" };
-                string[] val = new[] { g_id, l_id, u_id, "0", "0", "w", "1" };
+                string[] col = new[] { "gr_ID", "l_id", "u_id", "taskDoneOrNot", "total", "gr_Type", "new" };
+                string[] val = new[] { g_id, l_id, u_id, "0", "0", "w", "0" };
                 db.Insert("grants", col, val);
-                DateTime today = DateTime.UtcNow.Date;
-                string borrow_date = today.ToString("dd/MM/yyyy");
-                DateTime nextWeek = today.AddDays(7);
-                string return_date = nextWeek.ToString("dd/MM/yyyy");
+                string c;
+
+                today = DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss tt");
+                if (today[19] == 'P')
+                {
+                    c = today[11].ToString();
+                    int.TryParse(c, out int h0);
+                    c = today[12].ToString();
+                    int.TryParse(c, out int h1);
+                    int h = (h0 * 10 + 2) + 12;
+                    h0 = h / 10;
+                    h1 = h % 10;
+                    StringBuilder sb = new StringBuilder(today);
+                    sb[11] = Convert.ToChar(h0);
+                    sb[12] = Convert.ToChar(h1);
+                    today = sb.ToString();
+                }
+                string borrow_date = today.Remove(19, 3);
+
+                string date7 = DateTime.UtcNow.AddDays(7).ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss tt");
+                if (date7[19] == 'P')
+                {
+                    c = date7[11].ToString();
+                    int.TryParse(c, out int h0);
+                    c = date7[12].ToString();
+                    int.TryParse(c, out int h1);
+                    int h = (h0 * 10 + 2) + 12;
+                    h0 = h / 10;
+                    h1 = h % 10;
+                    StringBuilder sb = new StringBuilder(date7);
+                    sb[11] = Convert.ToChar(h0);
+                    sb[12] = Convert.ToChar(h1);
+                    date7 = sb.ToString();
+                }
+                string return_date = date7.Remove(19, 3);
                 string[] val2 = new[] {"", g_id, borrow_date, return_date, "0", "0" };
-                string[] col2 = new[] {"b_id", "g_id", "borrow_date", "return_date", "returned", "avail" };
-                string[] colId = { "ID" };
+                string[] col2 = new[] {"b_id", "g_id", "borrow_date", "return_date", "returned", "bor_avail" };
+                string[] colId = { "b_ID" };
                 
                 foreach (string book in myCollection)
                 {
-                    query = "Select ID from books where name = '" + book + "'";
+                    query = "Select b_id from books where b_name = '" + book + "'";
 
                     resultString = db.selectSearch(query, colId);
                     val2[0] = resultString[0][0];
@@ -308,30 +325,6 @@ namespace LibraryManagement
                 MessageBox.Show(ex.ToString());
                 throw;
             }
-            //string[] columns = new[] { "available" };
-            //query = "Select available from books where name = '" + selectedBook + "'";
-
-            //resultString = db.selectSearch(query, columns);
-            //foreach (List<string> s in resultString)
-            //{
-            //    foreach (string r in s)
-            //    {
-            //        p = r;
-            //    }
-            //}
-
-            //avail = Convert.ToInt16(p);
-            //if (avail == 0)
-            //{
-
-            //    MessageBox.Show("sorry this book is not available!!!");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("This book has been booked for you. Thank you");
-            //    avail--;
-            //    db.Update("books", columns, new[] { avail.ToString() }, "where name = '" + selectedBook + "'");
-            //}
         }
     }
 }

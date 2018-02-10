@@ -33,24 +33,18 @@ namespace LibraryManagement
         {
            try
             {
-                //con.Open();
-                
-                //int studentid, memid;
-                
+                              
                 name = txtname.Text;
-                memtype = combomembertype.Text;
+                //memtype = combomembertype.Text;
                 contact = txtmemberid.Text;
-
-                //string query = "INSERT INTO NewStudent1(studentid,name,course,year,semester,memberid,membertype,validitytime)Values(" + studentid + ",'" + name + "','" + course + "','" + year + "','" + semester + "'," + memid + ",'" + memtype + "','" + validity + "');";
-                //SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-                //SDA.SelectCommand.ExecuteNonQuery();
-                //con.Close();
-                db.Insert("user", new []{"name", "password", "contact", "m_id", "booklog", "reqpending"}, new []{name," ", contact, memtype, "0", "0"});
-                //MessageBox.Show("New Student record is created");
-
-
+                db.Insert("user", new []{"u_name", "password", "contact", "m_id", "booklog", "reqpending"}, new []{name,"null", contact, memtype, "0", "0"});
+                MessageBox.Show("User named " + name + "is added!");
+                new mainpage().Show();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -102,8 +96,8 @@ namespace LibraryManagement
         {
             try
             {
-                string query = "select name, id from publisher";
-                result = db.selectSearch(query, new[] { "name", "id" });
+                string query = "select mem_type from membership";
+                result = db.selectSearch(query, new[] { "mem_type"});
                 string[] memData = new string[result.Count];
                 //DataTable tableBuy = new DataTable();
                 for (int i = 0; i < result.Count; i++)
@@ -123,10 +117,11 @@ namespace LibraryManagement
 
         private void combomembertype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "selct id from membership where type = '" + combomembertype.SelectedItem.ToString() + "'";
+            string query = "select mem_id from membership where mem_type = '" + combomembertype.SelectedItem.ToString() + "'";
             result.Clear();
-            result = db.selectSearch(query, new[] { "id" });
+            result = db.selectSearch(query, new[] { "mem_id" });
             memtype = result[0][0];
+            //MessageBox.Show(memtype);
         }
 
         private void comboyear_SelectedIndexChanged(object sender, EventArgs e)

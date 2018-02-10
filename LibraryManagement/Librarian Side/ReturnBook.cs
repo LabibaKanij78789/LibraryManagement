@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using static LibraryManagement.DBConnect;
 namespace LibraryManagement
 {
     public partial class ReturnBook : Form
@@ -16,33 +16,21 @@ namespace LibraryManagement
         public ReturnBook()
         {
             InitializeComponent();
-            FillCombo();
+            
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
+        //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-J2E5UDC\SQLEXPRESS;Initial Catalog=lms;Integrated Security=True");
 
         bool flag = false;
         private void FillCombo()
         {
-            con.Open();
-            String query = "SELECT name FROM Newbook1;";
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                comboBox1.Items.Add(dr["name"].ToString());
-            }
-            con.Close();
+            
         }
         private void button3_Click(object sender, EventArgs e)
         {
           try
             {
                 //label5.Visible = true;
-                label4.Visible = true;
-                label3.Visible = true;
-                label7.Visible = true;
-                label6.Visible = true;
-                label12.Visible = true;
+                
                 label8.Visible = true;
                 label9.Visible = true;
                 label10.Visible = true;
@@ -50,133 +38,136 @@ namespace LibraryManagement
                 label15.Visible = true;
 
                 //txtmemberid.Visible = true;
-                txtname.Visible = true;
-                txtcourse.Visible = true;
-                txtyear.Visible = true;
-                txtsemester.Visible = true;
-                txtbookid.Visible = true;
-                txtedition.Visible = true;
-                txtpublisher.Visible = true;
-                txtauthor.Visible = true;
-                txtgenre.Visible = true;
-                txtissuedate.Visible = true;
-                String s = null;
-                int i;
+                
 
-                con.Open();
-                String query = "SELECT bookid FROM Newbook1 WHERE name='" +   comboBox1.Text + "'; ";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    s = (dr["bookid"].ToString());
-
-                }
-            dr.Close();
-                i = Convert.ToInt32(s);
-                String query1 = "SELECT issuedate FROM Issuebook WHERE studentid=" + txtstudentid.Text + "AND memberid=" + txtmemberid.Text + "AND bookid=" +i + "; ";
-                SqlCommand cmd1 = new SqlCommand(query1, con);
-                SqlDataReader dr1 = cmd1.ExecuteReader();
-                if (dr1.Read())
-                {
-                    flag = true;
-                    txtissuedate.Text = (dr1["issuedate"].ToString());
-
-                }
-            dr1.Close();
-
-
-            String query2 = "SELECT name,course ,year,semester FROM NewStudent1 WHERE studentid=" + txtstudentid.Text + "AND memberid=" + txtmemberid.Text + "; ";
-            SqlCommand cmd2 = new SqlCommand(query2, con);
-            SqlDataReader dr2 = cmd2.ExecuteReader();
-            if (dr2.Read())
-            {
-
-                txtname.Text = (dr2["name"].ToString());
-                txtcourse.Text = (dr2["course"].ToString());
-                txtyear.Text = (dr2["year"].ToString());
-                txtsemester.Text = (dr2["semester"].ToString());   
+            
             }
-            dr2.Close();
-
-
-            String query3 = "SELECT bookid,edition,publisher,author,genre FROM Newbook1 WHERE name='" + comboBox1.Text +  "'; ";
-            SqlCommand cmd3 = new SqlCommand(query3, con);
-            SqlDataReader dr3 = cmd3.ExecuteReader();
-            if (dr3.Read())
-            {
-                txtbookid.Text = (dr3["bookid"].ToString());
-                txtedition.Text = (dr3["edition"].ToString());
-                txtpublisher.Text = (dr3["publisher"].ToString());
-                txtauthor.Text = (dr3["author"].ToString());
-                txtgenre.Text = (dr3["genre"].ToString());
-
-            }
-            dr3.Close();
-            con.Close();
-            }catch(Exception ex) { }
+            catch (Exception ex) { }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainpage ob = new mainpage();
+            Librarian_Side.l_noti ob = new Librarian_Side.l_noti();
             this.Hide();
             ob.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // String s;
-            con.Open();
-            if (flag == true)
+            string query = "select b_id, available from books where b_name = '" + comboBox1.SelectedItem.ToString() + "'";
+            result.Clear();
+            result = db.selectSearch(query, new[] { "b_id", "available" });
+            int n;
+            int.TryParse(result[0][1], out n);
+            db.Update("borrows", new[] { "return_date " }, new[] { today }, " where b_id = '"+result[0][0]+"'");
+            query = "select u_id from user where u_name = '" + comboBox2.SelectedItem.ToString() + "'";
+            result.Clear();
+            result = db.selectSearch(query, new[] { "u_id" });
+            db.Update("notifications", new[] { "completed" }, new[] { "1" }, " where u_id = '"+result[0][0]+"'");
+            
+            n = n + 1;
+            db.Update("books", new[] { "available" }, new[] { n.ToString() }, " where b_id = '" + result[0][0] + "'");
+            result.Clear();
+            label5.Hide();
+            label10.Hide();
+            label11.Hide();
+            //int[] numbers = { 1, 3, 4, 9, 2 };
+
+            if (comboBox1.SelectedIndex >= 0)
+                comboBox1.DataSource = null;
+                comboBox1.Items.RemoveAt(comboBox1.SelectedIndex);
+            if (comboBox1.Items.Count == 0)
             {
-
-                String  stuid1 = txtstudentid.Text;
-                String memid1 = txtmemberid.Text;
-                String  bookid1= txtbookid.Text;
-                String date = returndate.Text;
-                int stuid = Convert.ToInt32(stuid1);
-                int memid = Convert.ToInt32(memid1);
-                int bookid = Convert.ToInt32(bookid1);
-
-                String q = "INSERT INTO ReturnBook(studentid,memberid,bookid,returndate) VALUES(" + stuid + "," + memid + "," + bookid + ",'" + date + "');";
-                SqlCommand cmd = new SqlCommand(q, con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                dr.Close();
-
-
-
-                String query3 = "SELECT amount FROM Newbook1 WHERE name='" + comboBox1.Text + "'; ";
-                SqlCommand cmd3 = new SqlCommand(query3, con);
-                SqlDataReader dr3 = cmd3.ExecuteReader();
-                String amount = null;
-                if (dr3.Read())
+                if (comboBox2.SelectedIndex >= 0)
+                    comboBox2.DataSource = null;
+                    comboBox2.Items.RemoveAt(comboBox2.SelectedIndex);
+                if (comboBox2.Items.Count == 0)
                 {
-                    amount= (dr3["amount"].ToString());
-                    
-
+                    MessageBox.Show("No books to return anymore!");
                 }
-                dr3.Close();
-                int n;
-                n = Convert.ToInt32(amount);
-                n++;
-                String query1 = "UPDATE Newbook1 SET amount="+n+"WHERE name='"+comboBox1.Text+"';";
-
-                SqlDataAdapter SDA1 = new SqlDataAdapter(query1, con);
-                SDA1.SelectCommand.ExecuteNonQuery();
-
-                MessageBox.Show("This Book is now available for Issue");
-                
             }
 
-            else
+        }
+        
+        DBConnect db = new DBConnect();
+        List<List<string>> result = new List<List<string>>();
+        private void ReturnBook_Load(object sender, EventArgs e)
+        {
+            label5.Hide();
+            label10.Hide();
+            label11.Hide();
+            string query = "select u_name from user inner join notifications on user.u_id = notifications.u_id " +
+                "where n_type = 'r' and completed = '0'";
+            result.Clear();
+            result = db.selectSearch(query, new[] { "u_name" });
+            string[] Ulist = new string[result.Count];
+            for (int i = 0; i < result.Count; i++)
             {
-                MessageBox.Show("You don't Issue this book \n so why do you want to return??");
+                Ulist[i] = result[i][0];
             }
-           
-            //s = Convert.ToString(flag);
-            //MessageBox.Show(s);
-            con.Close();
+            comboBox2.DataSource = Ulist;
+        }
+        
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "Select b_name from books inner join borrows on books.b_id = borrows.b_id inner join " +
+                "grants on borrows.g_id = grants.gr_id inner join notifications on notifications.u_id = grants.u_id " +
+                "inner join user on notifications.u_id = user.u_id where u_name = '" + comboBox2.SelectedItem.ToString() +
+                "' and returned = '1' and n_type = 'r' and completed = '0'";
+
+            result.Clear();
+            result = db.selectSearch(query, new[] { "b_name" });
+            string[] booklist = new string[result.Count];
+            for(int i = 0; i< result.Count; i++)
+            {
+                booklist[i] = result[i][0];
+            }
+            comboBox1.DataSource = booklist;
+        }
+        string today;
+        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "select pub_date, borrow_date from books inner join borrows on books.b_id = " +
+                "borrows.b_id where b_name = '" + comboBox1.SelectedItem.ToString() + "'";
+            result.Clear();
+            result = db.selectSearch(query, new[] { "pub_date", "borrow_date" });
+            if(result.Any())
+            {
+                label5.Text = result[0][0];
+                label10.Text = result[0][1];
+                string c;
+
+                today = DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss tt");
+                if(today[19] == 'P')
+                {
+                    c = today[11].ToString();
+                    int.TryParse(c, out int h0);
+                    c = today[12].ToString();
+                    int.TryParse(c, out int h1);
+                    int h = (h0 * 10 + 2) + 12;
+                    h0 = h / 10;
+                    h1 = h % 10;
+                    StringBuilder sb = new StringBuilder(today);
+                    sb[11] = Convert.ToChar(h0);
+                    sb[12] = Convert.ToChar(h1);
+                    today = sb.ToString();
+                }
+                today = today.Remove(19, 3);
+                
+                //MessageBox.Show(today);
+                label11.Text = today;
+                label8.Text = "Edition";
+                label9.Text = "Return Date";
+                label15.Text = "Issue Date";
+                label9.Show();
+                label5.Show();
+                label10.Show();
+                label11.Show();
+                label8.Show();
+                label15.Show();
+            }
+            
         }
     }
 }

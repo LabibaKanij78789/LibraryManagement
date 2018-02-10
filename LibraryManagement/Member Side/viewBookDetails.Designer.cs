@@ -223,7 +223,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LibraryManagement.Properties.Resources.back_1689836_960_7202;
+            this.pictureBox1.Image = global::LibraryManagement.Properties.Resources.back_1689836_960_720;
             this.pictureBox1.Location = new System.Drawing.Point(1147, 591);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);

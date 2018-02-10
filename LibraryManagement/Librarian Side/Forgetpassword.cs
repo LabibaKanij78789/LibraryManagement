@@ -41,8 +41,8 @@ namespace LibraryManagement
                 //password = txtpassword.Text;
                 //answer = txtanswer.Text;
                 //con.Open();
-                string[] col = new[] { "id", "name", "security", "time_id" };
-                String query1 = "SELECT id, name,security, time_id FROM Librarian WHERE username='" + username + "';";
+                string[] col = new[] { "l_id", "l_name", "security", "time_id" };
+                String query1 = "SELECT l_id, l_name,security, time_id FROM Librarian WHERE username='" + username + "';";
                 //SqlCommand cmd1 = new SqlCommand(query1, con);
                 List<List<string>> result = new List<List<string>>();
                 int i;
@@ -101,7 +101,7 @@ namespace LibraryManagement
                 //}
                 //dr1.Close();
 
-                String query2 = "SELECT password FROM Librarian WHERE answer = '" + txtanswer.Text + "' AND id='" + id + "' AND time_id='" + time_id + "';";
+                String query2 = "SELECT password FROM Librarian WHERE answer = '" + txtanswer.Text + "' AND l_id='" + id + "' AND time_id='" + time_id + "';";
                 //SqlCommand cmd2 = new SqlCommand(query2, con);
                 //SqlDataReader dr2 = cmd2.ExecuteReader();
                 //if (dr2.Read())

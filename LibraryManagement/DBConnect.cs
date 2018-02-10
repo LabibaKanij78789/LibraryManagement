@@ -32,7 +32,7 @@ namespace LibraryManagement
             password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-                               database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+                               database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";SslMode=none;";
 
             try
             {
@@ -55,6 +55,7 @@ namespace LibraryManagement
             try
             {
                 connection.Open();
+                //MessageBox.Show("opened");
                 return true;
             }
             catch (Exception ex)
@@ -71,6 +72,7 @@ namespace LibraryManagement
             try
             {
                 connection.Close();
+                //MessageBox.Show("closed");
                 return true;
             }
             catch (MySqlException ex)
@@ -149,22 +151,22 @@ namespace LibraryManagement
                 }
             }
             query += condition;
+
             //MessageBox.Show(query);
             //Open connection
             try {
-                //create mysql command
-                    MySqlCommand cmd = new MySqlCommand();
-                    //Assign the query using CommandText
-                    cmd.CommandText = query;
-                    //Assign the connection using Connection
-                    cmd.Connection = connection;
-
-                    //Execute query
+                                  
+                if (this.OpenConnection() == true)
+                {
+                    //cmd.CommandText = query;
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
-
+                    this.CloseConnection();
                     MessageBox.Show("Updated");
+                }
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -175,47 +177,44 @@ namespace LibraryManagement
         {
             string query = "DELETE FROM " + tableName + " WHERE ";
             query += colString + " = ";
-            query += "\'";
+            query += "'";
             query += value;
-            query += "\'";
-            //colNo = colStrings.Length;
-
-
-            //for (int i = 0; i < colNo; i++)
-            //{
-            //    query += colStrings[i] + " = ";
-            //    query += "\'";
-            //    query += values[i];
-            //    query += "\'";
-            //    if (i < colNo - 1)
-            //    {
-            //        query += ", ";
-            //    }
-            //}
-
+            query += "'";
+            
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted!");
                 this.CloseConnection();
             }
         }
-
+        public void DeleteCon(string tableName, string[] colStrings, string[] values)
+        {
+            string query = "DELETE FROM " + tableName + " WHERE ";
+            for (int i = 0; i < colStrings.Length; i++)
+            {
+                query += colStrings[i] + " = '";
+                query += values[i];
+                query += "'";
+                if (i < colStrings.Length - 1)
+                {
+                    query += "and ";
+                }
+            }
+            MessageBox.Show(query);
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted!");
+                this.CloseConnection();
+            }
+        }
         //Select statement
         public Boolean SelectAll(String tableName, string condition)
         {
             string query = "SELECT * FROM "+tableName+condition;
-            //colNo = colStrings.Length;
-            ////Create a list to store the result
-            //List<string>[] list = new List<string>[colNo];
-            //for (int i = 0; i < colNo; i++)
-            //{
-            //    list[i] = new List<string>();
-            //}
-            ////list[0] = new List<string>();
-            ////list[1] = new List<string>();
-            ////list[2] = new List<string>();
-
             try
             {
                 if (this.OpenConnection() == true)
@@ -229,19 +228,16 @@ namespace LibraryManagement
 
                     if (dataReader.HasRows)
                     {
+                        dataReader.Close();
+                        this.CloseConnection();
                         return true;
                     }
                     else
                     {
+                        dataReader.Close();
+                        this.CloseConnection();
                         return false;
-                    }
-
-                    //close Data Reader
-                    dataReader.Close();
-
-                    //close Connection
-                    this.CloseConnection();
-
+                    }                   
                 }
             }catch(Exception ex)
             {
@@ -328,11 +324,6 @@ namespace LibraryManagement
             //MessageBox.Show(query);
             //Create a list to store the result
             List<List<string>> list = new List<List<string>>();
-
-            //list[0] = new List<string>();
-            //list[1] = new List<string>();
-            //list[2] = new List<string>();
-
             //Open connection
             try
             {
@@ -341,8 +332,9 @@ namespace LibraryManagement
                     //Create Command
                     MySqlCommand cmd = new MySqlCommand(q, connection);
                     //Create a data reader and Execute the command
+                    //MessageBox.Show(query);
                     MySqlDataReader dataReader = cmd.ExecuteReader();
-
+                    //MessageBox.Show(dataReader.HasRows.ToString());
                     //Read the data and store them in the list
                     while (dataReader.Read())
                     {
@@ -404,7 +396,7 @@ namespace LibraryManagement
         {
             string query = "SELECT Count(*) FROM " + tableName + condition;
             int Count = -1;
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             //Open Connection
             if (this.OpenConnection() == true)
             {

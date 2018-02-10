@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.booksBorrowed = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.booksBought = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buy = new System.Windows.Forms.Label();
             this.borrow = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,54 +43,22 @@
             this.booksBorrowed.BackgroundColor = System.Drawing.Color.BlanchedAlmond;
             this.booksBorrowed.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.booksBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksBorrowed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column4});
             this.booksBorrowed.Location = new System.Drawing.Point(176, 170);
             this.booksBorrowed.Name = "booksBorrowed";
             this.booksBorrowed.Size = new System.Drawing.Size(444, 388);
             this.booksBorrowed.TabIndex = 0;
             this.booksBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksBorrowed_CellContentClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Book title";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Borrow date";
-            this.Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Return Date";
-            this.Column4.Name = "Column4";
-            // 
             // booksBought
             // 
             this.booksBought.BackgroundColor = System.Drawing.Color.BlanchedAlmond;
             this.booksBought.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.booksBought.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksBought.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.Column6});
             this.booksBought.Location = new System.Drawing.Point(697, 170);
             this.booksBought.Name = "booksBought";
             this.booksBought.Size = new System.Drawing.Size(438, 388);
             this.booksBought.TabIndex = 1;
             this.booksBought.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksBought_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Book title";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Price";
-            this.Column6.Name = "Column6";
             // 
             // buy
             // 
@@ -158,10 +121,5 @@
         private System.Windows.Forms.Label buy;
         private System.Windows.Forms.Label borrow;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

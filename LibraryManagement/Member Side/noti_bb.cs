@@ -18,7 +18,7 @@ namespace LibraryManagement
         string p, query, queryBuy, queryBorrow, user_id, total;
         string name;
         bool avail = false, flagBuy = false, flagBorrow = false;
-        string[] colBuy = new[] { "Book Title", "Author", "Genre", "Price" };
+        string[] colBuy = new[] { "Book Title", "Price" };
 
         private void lineShape1_Click(object sender, EventArgs e)
         {
@@ -35,36 +35,38 @@ namespace LibraryManagement
         {
             try
             {
-                string[] id = new[] { "ID" };
-                query = "select ID from grants where u_id = '" + user_id +
-                        "' and taskDoneOrNot = '0'";
-                resultString = db.selectSearch(query, id);
-                int index = resultString.Count();
-                //int[] totalPrice = new int[index];
-                for (i = 0; i < index; i++)
-                {
-                    grantQuery += "grants.id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
-                    {
-                        grantQuery += " or ";
-                    }
-                }
+                //string[] id = new[] { "gr_ID" };
+                //query = "select gr_ID from grants where u_id = '" + user_id +
+                //        "' and taskDoneOrNot = '0'";
+                //resultString = db.selectSearch(query, id);
+                //int index = resultString.Count();
+                ////int[] totalPrice = new int[index];
+                //for (i = 0; i < index; i++)
+                //{
+                //    grantQuery += "grants.gr_id = '" + resultString[i][0] + "'";
+                //    if (i < index - 1)
+                //    {
+                //        grantQuery += " or ";
+                //    }
+                //}
                 string[] colG = new[] { "taskDoneOrNot", "new" };
                 string[] vallG = new[] { "1", "4" };
-                db.Update("grants", colG, vallG, " " + grantQuery);
+                db.Update("grants", colG, vallG, " where " + grantQuery);
 
                 string[] avail = new[] { "available" };
                 string[] getId = new[] { "getID" };
                 string getQuery = "select DISTINCT(borrows.b_id + buys.b_id) as getID from borrows inner join " +
-                                  "grants on borrows.g_id = grants.id inner join buys on grants.d = buys.g_id " +
+                                  "grants on borrows.g_id = grants.gr_id inner join buys on grants.gr_id = buys.g_id " +
                                   "where " + grantQuery;
                 resultString = db.selectSearch(getQuery, getId);
                 int c = resultString.Count;
                 string[] aData = new string[c];
+                string[] bid = new string[c];
                 for (i = 0; i < c; i++)
                 {
-                    bookQuery += "id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
+                    bid[i] = resultString[i][0];
+                    bookQuery += "b_id = '" + resultString[i][0] + "'";
+                    if (i < c - 1)
                     {
                         bookQuery += " or ";
                     }
@@ -80,9 +82,10 @@ namespace LibraryManagement
                     {
                         data += 1;
                         aData[i] = data.ToString();
+                        db.Update("books", avail, new[] { aData[i] }, " where b_id = '" + bid[i] + "'");
                     }
                 }
-                db.Update("books", avail, aData, bookQuery);
+                //db.Update("books", avail, aData, bookQuery);
 
             }
             catch (Exception ex)
@@ -96,36 +99,39 @@ namespace LibraryManagement
         {
             try
             {
-                string[] id = new[] { "ID" };
-                query = "select ID from grants where u_id = '" + user_id +
-                        "' and taskDoneOrNot = '0'";
-                resultString = db.selectSearch(query, id);
-                int index = resultString.Count();
-                //int[] totalPrice = new int[index];
-                for (i = 0; i < index; i++)
-                {
-                    grantQuery += "grants.id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
-                    {
-                        grantQuery += " or ";
-                    }
-                }
+                //string[] id = new[] { "gr_ID" };
+                //query = "select gr_ID from grants where u_id = '" + user_id +
+                //        "' and taskDoneOrNot = '0'";
+                //resultString = db.selectSearch(query, id);
+                //int index = resultString.Count();
+                ////int[] totalPrice = new int[index];
+                //for (i = 0; i < index; i++)
+                //{
+                //    grantQuery += "gr_id = '" + resultString[i][0] + "'";
+                //    if (i < index - 1)
+                //    {
+                //        grantQuery += " or ";
+                //    }
+                //}
                 string[] colG = new[] { "taskDoneOrNot", "new" };
                 string[] vallG = new[] { "1", "4" };
-                db.Update("grants", colG, vallG, " " + grantQuery);
+                db.Update("grants", colG, vallG, " where " + grantQuery);
 
                 string[] avail = new[] { "available" };
                 string[] getId = new[] { "getID" };
                 string getQuery = "select DISTINCT(borrows.b_id + buys.b_id) as getID from borrows inner join " +
-                                  "grants on borrows.g_id = grants.id inner join buys on grants.d = buys.g_id " +
+                                  "grants on borrows.g_id = grants.gr_id inner join buys on grants.gr_id = buys.g_id " +
                                   "where " + grantQuery;
                 resultString = db.selectSearch(getQuery, getId);
+                
                 int c = resultString.Count;
+                string[] bid = new string[c];
                 string[] aData = new string[c];
                 for (i = 0; i < c; i++)
                 {
-                    bookQuery += "id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
+                    bid[i] = resultString[i][0];
+                    bookQuery += "b_id = '" + resultString[i][0] + "'";
+                    if (i < c - 1)
                     {
                         bookQuery += " or ";
                     }
@@ -141,9 +147,10 @@ namespace LibraryManagement
                     {
                         data += 1;
                         aData[i] = data.ToString();
+                        db.Update("books", avail, new[] { aData[i] }, " where b_id = '" + bid[i] + "'");
                     }
                 }
-                db.Update("books", avail, aData, bookQuery);
+                
 
             }
             catch (Exception ex)
@@ -157,23 +164,26 @@ namespace LibraryManagement
         {
             try
             {
-                string[] id = new[] { "ID" };
-                query = "select ID from grants where u_id = '" + user_id +
+                string[] id = new[] { "gr_ID" };
+                query = "select gr_ID from grants where u_id = '" + user_id +
                         "' and taskDoneOrNot = '0'";
                 resultString = db.selectSearch(query, id);
                 int index = resultString.Count();
                 //int[] totalPrice = new int[index];
-                for (i = 0; i < index; i++)
-                {
-                    grantQuery += "grants.id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
-                    {
-                        grantQuery += " or ";
-                    }
-                }
+                //grantQuery = null;
+                //for (i = 0; i < index; i++)
+                //{
+                //    grantQuery += "grants.gr_id = '" + resultString[i][0] + "'";
+                //    if (i < index - 1)
+                //    {
+                //        grantQuery += " or ";
+                //    }
+                //}
                 string[] colG = new[] { "taskDoneOrNot", "new" };
                 string[] vallG = new[] { "1", "4" };
-                db.Update("grants", colG, vallG, " " + grantQuery);
+                
+                db.Update("grants", colG, vallG, " where " + grantQuery);
+                db.Update("grants", new[] { "completed" }, new[] { "1" }, " where u_id = '" + user_id + "' and gr_type = 'w'");
             }
             catch (Exception ex)
             {
@@ -191,23 +201,25 @@ namespace LibraryManagement
         {
             try
             {
-                string[] id = new[] { "ID" };
-                query = "select ID from grants where u_id = '" + user_id +
+                string[] id = new[] { "gr_ID" };
+                query = "select gr_ID from grants where u_id = '" + user_id +
                         "' and taskDoneOrNot = '0'";
                 resultString = db.selectSearch(query, id);
                 int index = resultString.Count();
-                //int[] totalPrice = new int[index];
-                for (i = 0; i < index; i++)
-                {
-                    grantQuery += "grants.id = '" + resultString[i][0] + "'";
-                    if (i < index - 1)
-                    {
-                        grantQuery += " or ";
-                    }
-                }
+                //grantQuery = 
+                ////int[] totalPrice = new int[index];
+                //for (i = 0; i < index; i++)
+                //{
+                //    grantQuery += "grants.gr_id = '" + resultString[i][0] + "'";
+                //    if (i < index - 1)
+                //    {
+                //        grantQuery += " or ";
+                //    }
+                //}
                 string[] colG = new[] {"taskDoneOrNot", "new"};
                 string[] vallG = new[] { "1", "4" };
-                db.Update("grants", colG, vallG, " "+grantQuery);
+                db.Update("grants", colG, vallG, " where " + grantQuery);
+                db.Update("grants", new[] { "completed" }, new[] { "1" }, " where u_id = '" + user_id + "' and gr_type = 'y'");
             }
             catch (Exception ex)
             {
@@ -248,9 +260,10 @@ namespace LibraryManagement
 
         private void noti_bb_Load(object sender, EventArgs e)
         {
+            title.BackColor = Color.Transparent;
             try
             {
-                userName.Text += name;
+                
                 if (p == "bj")
                 {
                     label2.Text = "Request Pending";
@@ -264,39 +277,42 @@ namespace LibraryManagement
                     groupBox2.Show();
                     if (n > 0)
                     {
-                        string[] id_type_total_new = new[] { "ID", "total", "Type", "new" };
-                        query = "select ID, total, type, new from grants where u_id = '" + user_id +
+                        string[] id_type_total_new = new[] { "gr_ID", "total", "gr_Type", "new" };
+                        query = "select gr_ID, total, gr_type, new from grants where u_id = '" + user_id +
                                 "' and taskDoneOrNot = '0'";
                         resultString = db.selectSearch(query, id_type_total_new);
                         label1.Text = "Our librarian has checked your request,";
-
+                        //MessageBox.Show(resultString.Count.ToString());
                         int index = resultString.Count();
-
+                        //MessageBox.Show(avail+" "+flagBorrow+" "+flagBorrow);
                         int[] totalPrice = new int[index];
                         for (i = 0; i < index; i++)
                         {
-                            if (!avail && resultString[i][3].Equals('2'))
+                            //MessageBox.Show(avail + " " + flagBorrow + " " + flagBorrow);
+                            //MessageBox.Show(resultString[i][3] + " " + resultString[i][2]);
+                            if (!avail && resultString[i][3].Equals("2"))
                             {
                                 avail = true;
                                 //break;
+                                //MessageBox.Show("aval");
                             }
 
-                            if (!flagBorrow && resultString[i][2].Equals('w'))
+                            if (!flagBorrow && resultString[i][2].Equals("w"))
                             {
                                 flagBorrow = true;
-
+                                //MessageBox.Show("bor");
                             }
 
-                            if (!flagBuy && resultString[i][2].Equals('y'))
+                            if (!flagBuy && resultString[i][2].Equals("y"))
                             {
                                 flagBuy = true;
 
-
+                                //MessageBox.Show("buy");
                             }
 
                             totalPrice[i] = Convert.ToInt16(resultString[i][1]);
                             price += totalPrice[i];
-                            grantQuery += "grants.id = '" + resultString[i][0] + "'";
+                            grantQuery += "grants.gr_id = '" + resultString[i][0] + "'";
                             if (i < index - 1)
                             {
                                 grantQuery += " or ";
@@ -312,23 +328,27 @@ namespace LibraryManagement
                         {
                             label1.Text += " and the following books are available.";
                             //fetch buy data of (boook.name, book.author, book.genre, book.price of gid, avail, u_id
-                            queryBuy = "select books.name, books.author, books.genre, books.price " +
-                                       "from books inner join buys on books.id = buys.b_id inner join grants on " +
-                                       "buys.g_id = grants.id where buys.avail = '1' and " + grantQuery;
-                            string[] colY = new[] { "books.name", "books.author", "books.genre", "books.price" };
-
+                            queryBuy = "select b_name, price " +
+                                       "from books inner join buys on books.b_id = buys.b_id inner join grants on " +
+                                       "buys.g_id = grants.gr_id inner join user on grants.u_id = user.u_id where " +
+                                       "buys.buy_avail = '1' and " + grantQuery + " and user.u_id = '" + user_id + "'";
+                            string[] colY = new[] { "b_name", "price" };
+                            MessageBox.Show(queryBuy.ToString());
                             //fetch borrow data of (boook.name, borrows.borrow_date, borrows.returndate,  of gid, avail, u_id
-                            queryBorrow = "select books.name, borrows.borrow_date, borrows.return_date " +
-                                          "from books inner join borrows on books.id = borrows.b_id inner join grants on " +
-                                          "borrows.g_id = grants.id where borrows.avail = '1' and " + grantQuery;
-                            string[] colW = new[] { "books.name", "borrows.borrow_date", "borrows.return_date" };
+                            queryBorrow = "select b_name, borrow_date, return_date " +
+                                          "from books inner join borrows on books.b_id = borrows.b_id inner join grants on " +
+                                          "borrows.g_id = grants.gr_id inner join user on grants.u_id = user.u_id where " +
+                                          "borrows.bor_avail = '1' and " + grantQuery + " and user.u_id = '" + user_id + "'";
+                            MessageBox.Show(queryBorrow.ToString());
+                            string[] colW = new[] { "b_name", "borrow_date", "return_date" };
                             if (flagBorrow && flagBuy)
                             {
                                 //for buy table
+                                MessageBox.Show("wy");
                                 label3.Show();
                                 label3.Text = "Buy";
                                 dataGridView1.Show();
-                                resultBuy = db.selectSearch(queryBuy, colY);
+                                resultBuy = db.selectSearch(queryBuy, new[] { "b_name", "price" });
                                 DataTable tableBuy = new DataTable();
                                 for (i = 0; i < colBuy.Length; i++)
                                 {
@@ -355,7 +375,7 @@ namespace LibraryManagement
                                 label4.Show();
                                 label4.Text = "Borrow";
                                 dataGridView2.Show();
-                                resultBorrow = db.selectSearch(queryBorrow, colW);
+                                resultBorrow = db.selectSearch(queryBorrow, new[] { "b_name", "borrow_date", "return_date" });
                                 DataTable tableBorrow = new DataTable();
                                 for (i = 0; i < colBorrow.Length; i++)
                                 {
@@ -372,9 +392,10 @@ namespace LibraryManagement
                             else if (!flagBorrow && flagBuy)
                             {
                                 label3.Show();
+                                MessageBox.Show("y");
                                 label3.Text = "Buy";
                                 dataGridView1.Show();
-                                resultBuy = db.selectSearch(queryBuy, colY);
+                                resultBuy = db.selectSearch(queryBuy, new[] { "b_name", "price" });
                                 DataTable tableBuy = new DataTable();
                                 for (int i = 0; i < colBuy.Length; i++)
                                 {
@@ -400,8 +421,9 @@ namespace LibraryManagement
                             }
                             else if (flagBorrow && !flagBuy)
                             {
+                                MessageBox.Show("w");
                                 dataGridView1.Show();
-                                resultBorrow = db.selectSearch(queryBorrow, colW);
+                                resultBorrow = db.selectSearch(queryBorrow, new[] { "b_name", "borrow_date", "return_date" });
                                 DataTable tableBorrow = new DataTable();
                                 for (int i = 0; i < colBorrow.Length; i++)
                                 {

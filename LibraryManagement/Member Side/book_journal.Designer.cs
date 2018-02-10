@@ -38,6 +38,7 @@
             this.borrow = new System.Windows.Forms.LinkLabel();
             this.bookPanel = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
+            this.ret = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.bookData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +110,7 @@
             this.buy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buy.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.buy.LinkColor = System.Drawing.Color.Coral;
-            this.buy.Location = new System.Drawing.Point(833, 628);
+            this.buy.Location = new System.Drawing.Point(777, 630);
             this.buy.Name = "buy";
             this.buy.Padding = new System.Windows.Forms.Padding(2);
             this.buy.Size = new System.Drawing.Size(45, 26);
@@ -128,7 +129,7 @@
             this.borrow.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.borrow.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.borrow.LinkColor = System.Drawing.Color.Coral;
-            this.borrow.Location = new System.Drawing.Point(948, 628);
+            this.borrow.Location = new System.Drawing.Point(851, 630);
             this.borrow.Name = "borrow";
             this.borrow.Padding = new System.Windows.Forms.Padding(2);
             this.borrow.Size = new System.Drawing.Size(71, 26);
@@ -146,6 +147,7 @@
             this.bookPanel.Name = "bookPanel";
             this.bookPanel.Size = new System.Drawing.Size(288, 409);
             this.bookPanel.TabIndex = 20;
+            this.bookPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bookPanel_Paint);
             // 
             // title
             // 
@@ -159,12 +161,32 @@
             this.title.TabIndex = 21;
             this.title.Text = "The Athenaeuam";
             // 
+            // ret
+            // 
+            this.ret.ActiveLinkColor = System.Drawing.Color.White;
+            this.ret.AutoSize = true;
+            this.ret.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ret.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ret.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ret.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.ret.LinkColor = System.Drawing.Color.Coral;
+            this.ret.Location = new System.Drawing.Point(970, 630);
+            this.ret.Name = "ret";
+            this.ret.Padding = new System.Windows.Forms.Padding(2);
+            this.ret.Size = new System.Drawing.Size(70, 26);
+            this.ret.TabIndex = 22;
+            this.ret.TabStop = true;
+            this.ret.Text = "Return";
+            this.ret.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.ret.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ret_LinkClicked);
+            // 
             // book_journal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.image;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.ret);
             this.Controls.Add(this.title);
             this.Controls.Add(this.bookPanel);
             this.Controls.Add(this.borrow);
@@ -194,5 +216,6 @@
         private System.Windows.Forms.LinkLabel borrow;
         private System.Windows.Forms.Panel bookPanel;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.LinkLabel ret;
     }
 }

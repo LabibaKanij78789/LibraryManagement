@@ -50,6 +50,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Librarian Side\l_noti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian Side\l_noti.Designer.cs">
+      <DependentUpon>l_noti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian Side\Survey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian Side\Survey.Designer.cs">
+      <DependentUpon>Survey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Member Side\book possession.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     <Compile Include="Librarian Side\mainpage.Designer.cs">
       <DependentUpon>mainpage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Member Side\get_suggestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member Side\get_suggestion.Designer.cs">
+      <DependentUpon>get_suggestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Member Side\MemberPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +185,12 @@
     <Compile Include="Member Side\viewBookDetails.Designer.cs">
       <DependentUpon>viewBookDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Librarian Side\l_noti.resx">
+      <DependentUpon>l_noti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Librarian Side\Survey.resx">
+      <DependentUpon>Survey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Member Side\book possession.resx">
       <DependentUpon>book possession.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +221,9 @@
     <EmbeddedResource Include="Librarian Side\mainpage.resx">
       <DependentUpon>mainpage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Member Side\get_suggestion.resx">
+      <DependentUpon>get_suggestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Member Side\MemberPage.resx">
       <DependentUpon>MemberPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,14 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Librarian Side\ReturnBook.resx">
       <DependentUpon>ReturnBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +260,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -276,6 +303,116 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\020_215_book_read_history_bookmarks_education_journal_log_logbook_3-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AcademicBookWeek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm-icon_2005848.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-1689836_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bec832c9351ab686345206e44b4ae133--weekly-reading-logs-free-reading.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_gol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booklog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\complete-the-form-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\downloading-updates-xxl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e2a5870d0c1071c8ab2195612689076c_400x400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employeeid_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graphic-design-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hi-852-generic-books.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noti.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pile of books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suggestion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updateBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\website-design-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speechOrangeBubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\live-chatRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\survey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

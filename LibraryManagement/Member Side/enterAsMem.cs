@@ -37,7 +37,7 @@ namespace LibraryManagement
             //List<List<string>> result = new List<List<string>>();
             //string query = "select * from user where name = '" + nameBox + "' and password = '" + passBox + "'";
             //MessageBox.Show(query);
-            string conq = " where name = '" + nameBox + "' and password = '" + passBox + "'";
+            string conq = " where u_name = '" + nameBox + "' and password = '" + passBox + "'";
             try
             {
                 if (db.SelectAll("user", conq))
